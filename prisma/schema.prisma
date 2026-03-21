@@ -65,6 +65,7 @@ model Question {
   choices      Json
   correctIndex Int
   explanation  String   @db.Text
+  relatedLinks Json     @default("[]")
   attemptDetails AttemptDetail[]
 }
 

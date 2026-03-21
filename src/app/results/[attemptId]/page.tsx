@@ -138,6 +138,31 @@ export default async function ResultsPage({
                   <p className="text-sm text-kast-muted leading-relaxed">
                     {question.explanation}
                   </p>
+                  {(() => {
+                    const links = question.relatedLinks as {label: string, url: string}[] | undefined;
+                    if (!links || links.length === 0) return null;
+                    return (
+                      <div className="mt-3 pt-3 border-t border-kast-accent/10">
+                        <p className="text-xs font-semibold text-kast-accent uppercase tracking-wider mb-1.5">
+                          Related Links
+                        </p>
+                        <ul className="space-y-1">
+                          {links.map((link, li) => (
+                            <li key={li}>
+                              <a
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-sm text-kast-accent hover:underline"
+                              >
+                                {link.label} &#8599;
+                              </a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    );
+                  })()}
                 </div>
               </div>
             );
