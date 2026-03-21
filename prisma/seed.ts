@@ -309,7 +309,7 @@ const questions = [
     choices: ["Brad Jaffe", "Sameera Nilupul", "Oriana Tessari", "Sam Kerrins"],
     correctIndex: 2,
     explanation: "Oriana Tessari leads KAST's Global Financial Partnerships, bringing over 10 years of experience from major institutions including ANZ Bank, Airwallex, and Stripe.",
-    relatedLinks: [{label: "Meet KAST: Oriana Tessari", url: "https://www.kast.xyz/blog/meet-kast-oriana-tessari"}]
+    relatedLinks: [{label: "Meet KAST: Oriana Tessari", url: "https://www.kast.xyz/blog/meet-kast-head-of-financial-partnerships-oriana-tessari"}]
   },
   {
     id: 34,

@@ -648,7 +648,7 @@ The KAST Premium card carries an annual fee of **$1,000/year**, while the Luxe t
 **Oriana Tessari** leads KAST's Global Financial Partnerships, bringing over **10 years of experience** from major institutions including ANZ Bank, Airwallex, and Stripe. Her expertise in traditional finance and fintech helps bridge KAST's crypto-native product with global banking infrastructure.
 
 **Related Links:**
-- [Meet KAST: Oriana Tessari](https://www.kast.xyz/blog/meet-kast-oriana-tessari)
+- [Meet KAST: Oriana Tessari](https://www.kast.xyz/blog/meet-kast-head-of-financial-partnerships-oriana-tessari)
 
 ---
 
