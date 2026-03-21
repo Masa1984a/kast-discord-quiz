@@ -1,33 +1,8 @@
-"use client";
-
-import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 const REFERRAL_URL = "https://go.kast.xyz/VqVO/SAPPORO";
 
-function generateQR(canvas: HTMLCanvasElement, url: string) {
-  const size = 80;
-  canvas.width = size;
-  canvas.height = size;
-  const img = new Image();
-  img.crossOrigin = "anonymous";
-  img.src = `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(url)}&margin=2`;
-  img.onload = () => {
-    const ctx = canvas.getContext("2d");
-    if (ctx) {
-      ctx.fillStyle = "#ffffff";
-      ctx.fillRect(0, 0, size, size);
-      ctx.drawImage(img, 0, 0, size, size);
-    }
-  };
-}
-
 export default function KastReferralFooter() {
-  const qrRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    if (qrRef.current) generateQR(qrRef.current, REFERRAL_URL);
-  }, []);
-
   return (
     <footer className="max-w-4xl mx-auto px-4 pb-12 pt-4 mt-auto">
       <div className="bg-kast-card rounded-xl border border-kast-border p-6">
@@ -41,7 +16,12 @@ export default function KastReferralFooter() {
           className="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-lg border border-kast-border bg-[#0F0F0F] hover:border-kast-accent/40 transition-colors no-underline max-w-md mx-auto"
         >
           <div className="flex-shrink-0 p-2 bg-white rounded">
-            <canvas ref={qrRef} width={80} height={80} className="block w-[80px] h-[80px]" />
+            <Image
+              src="/qr-kast.png"
+              alt="KAST referral QR code"
+              width={80}
+              height={80}
+            />
           </div>
           <div className="flex-1 text-center sm:text-left">
             <p className="text-sm text-kast-muted mb-1">
