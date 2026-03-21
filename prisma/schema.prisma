@@ -66,6 +66,7 @@ model Question {
   correctIndex Int
   explanation  String   @db.Text
   relatedLinks Json     @default("[]")
+  retired      Boolean  @default(false)
   attemptDetails AttemptDetail[]
 }
 

@@ -38,11 +38,18 @@ function parseArgs(args: string[]): { command: string; id?: number; flags: Recor
 }
 
 async function list(flags: Record<string, string>) {
-  const where = flags.category ? { category: flags.category } : {};
+  const where: Record<string, unknown> = {};
+  if (flags.category) where.category = flags.category;
+  if (flags.retired === "true") {
+    where.retired = true;
+  } else if (flags.all !== "true") {
+    // デフォルトは有効な設問のみ表示。--all で全件、--retired で retired のみ
+    where.retired = false;
+  }
   const questions = await prisma.question.findMany({
     where,
     orderBy: { id: "asc" },
-    select: { id: true, category: true, questionText: true, correctIndex: true },
+    select: { id: true, category: true, questionText: true, correctIndex: true, retired: true },
   });
 
   if (questions.length === 0) {
@@ -51,11 +58,12 @@ async function list(flags: Record<string, string>) {
   }
 
   console.log(`Found ${questions.length} question(s):\n`);
-  console.log("ID  | Category                    | Question (truncated)");
-  console.log("----|-----------------------------|-----------------------------------------");
+  console.log("ID  | Ret | Category                    | Question (truncated)");
+  console.log("----|-----|-----------------------------|------------------------------------------");
   for (const q of questions) {
     const text = q.questionText.length > 40 ? q.questionText.slice(0, 40) + "..." : q.questionText;
-    console.log(`${String(q.id).padStart(3)} | ${q.category.padEnd(27)} | ${text}`);
+    const ret = q.retired ? " ✗ " : "   ";
+    console.log(`${String(q.id).padStart(3)} | ${ret} | ${q.category.padEnd(27)} | ${text}`);
   }
 }
 
@@ -69,8 +77,9 @@ async function get(id: number) {
   const choices = q.choices as string[];
   const labels = ["A", "B", "C", "D", "E", "F"];
 
-  console.log(`Question #${q.id}`);
+  console.log(`Question #${q.id}${q.retired ? "  [RETIRED]" : ""}`);
   console.log(`Category:     ${q.category}`);
+  console.log(`Retired:      ${q.retired ? "Yes (出題対象外)" : "No"}`);
   console.log(`Question:     ${q.questionText}`);
   console.log(`Choices:`);
   choices.forEach((c, i) => {
@@ -166,6 +175,7 @@ async function update(id: number, flags: Record<string, string>) {
     data.correctIndex = ci;
   }
   if (flags.explanation) data.explanation = flags.explanation;
+  if (flags.retired !== undefined) data.retired = flags.retired === "true";
   if (flags.links) {
     try {
       data.relatedLinks = JSON.parse(flags.links);
@@ -183,6 +193,23 @@ async function update(id: number, flags: Record<string, string>) {
   const q = await prisma.question.update({ where: { id }, data });
   console.log(`Updated question #${q.id}: "${q.questionText}"`);
   console.log(`Updated fields: ${Object.keys(data).join(", ")}`);
+}
+
+async function retire(id: number, undo: boolean) {
+  const existing = await prisma.question.findUnique({ where: { id } });
+  if (!existing) {
+    console.log(`Question #${id} not found.`);
+    process.exit(1);
+  }
+
+  const newValue = !undo;
+  if (existing.retired === newValue) {
+    console.log(`Question #${id} is already ${newValue ? "retired" : "active"}.`);
+    return;
+  }
+
+  await prisma.question.update({ where: { id }, data: { retired: newValue } });
+  console.log(`Question #${id} is now ${newValue ? "retired (出題対象外)" : "active (出題対象)"}.`);
 }
 
 async function remove(id: number, force: boolean) {
@@ -215,10 +242,12 @@ function showHelp() {
 Quiz CRUD Manager
 
 Usage:
-  quiz-crud.ts list [--category "..."]     List all questions
+  quiz-crud.ts list [--category "..."] [--all] [--retired]  List questions (default: active only)
   quiz-crud.ts get <id>                    Get question details
   quiz-crud.ts create --category "..." --question "..." --choices '[...]' --correct N --explanation "..."
-  quiz-crud.ts update <id> [--category] [--question] [--choices] [--correct] [--explanation]
+  quiz-crud.ts update <id> [--category] [--question] [--choices] [--correct] [--explanation] [--retired true/false]
+  quiz-crud.ts retire <id>                 Retire a question (出題対象外)
+  quiz-crud.ts activate <id>               Re-activate a retired question
   quiz-crud.ts delete <id> [--force]       Delete a question
   `);
 }
@@ -242,6 +271,14 @@ async function main() {
       case "update":
         if (id === undefined) { console.error("Usage: update <id> [flags]"); process.exit(1); }
         await update(id, flags);
+        break;
+      case "retire":
+        if (id === undefined) { console.error("Usage: retire <id>"); process.exit(1); }
+        await retire(id, false);
+        break;
+      case "activate":
+        if (id === undefined) { console.error("Usage: activate <id>"); process.exit(1); }
+        await retire(id, true);
         break;
       case "delete":
         if (id === undefined) { console.error("Usage: delete <id>"); process.exit(1); }

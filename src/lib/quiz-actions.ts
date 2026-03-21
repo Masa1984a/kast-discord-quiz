@@ -19,7 +19,7 @@ export type QuizAnswer = {
 export async function getRandomQuestions(): Promise<SafeQuestion[]> {
   const questions = await prisma.$queryRawUnsafe<
     { id: number; category: string; questionText: string; choices: string }[]
-  >(`SELECT id, category, "questionText", choices FROM "Question" ORDER BY RANDOM() LIMIT 5`);
+  >(`SELECT id, category, "questionText", choices FROM "Question" WHERE "retired" = false ORDER BY RANDOM() LIMIT 5`);
 
   return questions.map((q) => ({
     id: q.id,
