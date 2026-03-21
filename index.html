@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KAST Discord Quiz — All 15 Questions, Answers & Explanations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            kast: { bg: '#0F0F0F', card: '#1A1A1A', border: '#2A2A2A', accent: '#A78BFA', correct: '#34D399', muted: '#A0A0A0' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background: #0F0F0F; color: #E5E5E5; }
+    .choice-correct { background: linear-gradient(135deg, rgba(52,211,153,0.12) 0%, rgba(52,211,153,0.04) 100%); border-color: #34D399; }
+    .explanation-box { background: linear-gradient(135deg, rgba(167,139,250,0.08) 0%, rgba(167,139,250,0.02) 100%); }
+    details summary { cursor: pointer; list-style: none; }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] summary .chevron { transform: rotate(180deg); }
+    .chevron { transition: transform 0.2s ease; }
+    .flag-btn { transition: all 0.15s ease; opacity: 0.55; }
+    .flag-btn:hover { opacity: 0.85; transform: scale(1.1); }
+    .flag-btn.active { opacity: 1; transform: scale(1.15); box-shadow: 0 0 0 2px #A78BFA; }
+    .fi { border-radius: 3px; }
+  </style>
+</head>
+<body class="font-sans min-h-screen">
+
+  <!-- Hero Section -->
+  <header class="relative border-b border-kast-border">
+    <div class="max-w-4xl mx-auto px-4 pt-8 pb-6 text-center">
+      <p class="text-kast-accent font-semibold text-sm uppercase tracking-widest mb-3">KAST Discord Community</p>
+      <h1 class="text-3xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-white via-gray-200 to-kast-muted bg-clip-text text-transparent">
+        Quiz Event — All 15 Q&A
+      </h1>
+      <p class="text-kast-muted max-w-2xl mx-auto leading-relaxed" id="hero-desc">
+        On March 20, 2026 at 1:00 PM UTC, the <strong class="text-white">first-ever KAST Quiz Event</strong> was held on Discord.
+        15 questions covering core features, leadership, fees, and more — explained in <strong class="text-white">15 languages</strong>.
+      </p>
+
+      <!-- Flag Language Switcher -->
+      <nav class="flex flex-wrap justify-center gap-2 mt-6" id="flag-nav" aria-label="Language selector"></nav>
+
+      <!-- Event Info -->
+      <div class="flex flex-wrap justify-center gap-3 mt-6 text-sm">
+        <div class="flex items-center gap-2 bg-kast-card px-4 py-2 rounded-full border border-kast-border">
+          <span>📅</span> <span>March 20, 2026</span>
+        </div>
+        <div class="flex items-center gap-2 bg-kast-card px-4 py-2 rounded-full border border-kast-border">
+          <span>🕐</span> <span>1:00 PM UTC</span>
+        </div>
+        <div class="flex items-center gap-2 bg-kast-card px-4 py-2 rounded-full border border-kast-border">
+          <span>💬</span> <span>KAST Official Discord</span>
+        </div>
+        <div class="flex items-center gap-2 bg-kast-card px-4 py-2 rounded-full border border-kast-border">
+          <span>❓</span> <span>15 Questions</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Questions Section -->
+  <main class="max-w-4xl mx-auto px-4 py-8 space-y-6" id="questions-container">
+    <!-- Category Labels -->
+    <div class="flex flex-wrap gap-2 text-xs font-semibold mb-2">
+      <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">Q1–Q4: Core Products</span>
+      <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Q5–Q7: Leadership & Fundraising</span>
+      <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">Q8–Q10: Cards & Rewards</span>
+      <span class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">Q11–Q13: Stablecoins & Fees</span>
+      <span class="px-3 py-1 rounded-full bg-rose-500/10 text-rose-400 border border-rose-500/20">Q14–Q15: Staking & Team</span>
+    </div>
+    <!-- Questions rendered by JS -->
+  </main>
+
+  <!-- Summary -->
+  <div class="max-w-4xl mx-auto px-4 pb-4">
+    <div class="bg-kast-card rounded-xl border border-kast-border p-6">
+      <h2 class="text-xl font-bold text-white mb-4">Looking Back at the Quiz</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+        <div class="flex items-start gap-2"><span class="text-emerald-400 mt-0.5">&#9679;</span><span><strong class="text-white">Q1–Q4:</strong> <span class="text-kast-muted">Core Products (Store / Move / Spend / Earn / Pay)</span></span></div>
+        <div class="flex items-start gap-2"><span class="text-blue-400 mt-0.5">&#9679;</span><span><strong class="text-white">Q5–Q7:</strong> <span class="text-kast-muted">Leadership & Fundraising (total $90M raised)</span></span></div>
+        <div class="flex items-start gap-2"><span class="text-amber-400 mt-0.5">&#9679;</span><span><strong class="text-white">Q8–Q10:</strong> <span class="text-kast-muted">Cards & Rewards (up to 12% cashback, 37g gold card)</span></span></div>
+        <div class="flex items-start gap-2"><span class="text-purple-400 mt-0.5">&#9679;</span><span><strong class="text-white">Q11–Q13:</strong> <span class="text-kast-muted">Stablecoins & Fees (USD 0%, non-USD 0.5–1.75%)</span></span></div>
+        <div class="flex items-start gap-2"><span class="text-rose-400 mt-0.5">&#9679;</span><span><strong class="text-white">Q14–Q15:</strong> <span class="text-kast-muted">SOL Staking & Executive Team</span></span></div>
+      </div>
+      <p class="text-kast-muted text-sm mt-4">More than just a quiz — it was a structured overview of what makes KAST unique. This was the very first Discord Quiz Event!</p>
+    </div>
+  </div>
+
+  <!-- Footer: KAST & Discord Links with QR Codes -->
+  <footer class="max-w-4xl mx-auto px-4 pb-12 pt-4">
+    <div class="bg-kast-card rounded-xl border border-kast-border p-6">
+      <h3 class="text-lg font-bold text-white text-center mb-6">Join the KAST Community</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-lg border border-kast-border bg-kast-bg hover:border-kast-accent/40 transition-colors">
+          <div class="flex-shrink-0 p-2 bg-white rounded" id="qr-kast"></div>
+          <div class="flex-1 text-center sm:text-left">
+            <p class="text-sm text-kast-muted mb-1">New to KAST? Get started in 2 minutes:</p>
+            <a href="https://go.kast.xyz/VqVO/SAPPORO" target="_blank" rel="noopener noreferrer" class="text-sm font-mono text-kast-accent hover:underline break-all">https://go.kast.xyz/VqVO/SAPPORO</a>
+            <p class="text-xs text-kast-muted mt-2">Store, earn, move, and spend stablecoins globally.</p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-4 p-4 rounded-lg border border-kast-border bg-kast-bg hover:border-kast-accent/40 transition-colors">
+          <div class="flex-shrink-0 p-2 bg-white rounded" id="qr-discord"></div>
+          <div class="flex-1 text-center sm:text-left">
+            <p class="text-sm text-kast-muted mb-1">Join the KAST Discord Community:</p>
+            <a href="https://discord.gg/sFGewYk9YQ" target="_blank" rel="noopener noreferrer" class="text-sm font-mono text-kast-accent hover:underline break-all">https://discord.gg/sFGewYk9YQ</a>
+            <p class="text-xs text-kast-muted mt-2">Chat, learn, and participate in community events.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="text-center text-xs text-kast-muted mt-6">KAST Discord Quiz Event — March 20, 2026 — 15 Languages, 15 Questions</p>
+  </footer>
+
+<script>
+// ── Language definitions ──
+const LANGS = [
+  { code: "en", flag: "gb", label: "English" },
+  { code: "pt", flag: "br", label: "Português" },
+  { code: "es", flag: "es", label: "Español" },
+  { code: "fr", flag: "fr", label: "Français" },
+  { code: "ru", flag: "ru", label: "Русский" },
+  { code: "pcm", flag: "ng", label: "Pidgin" },
+  { code: "id", flag: "id", label: "Indonesia" },
+  { code: "vi", flag: "vn", label: "Tiếng Việt" },
+  { code: "hi", flag: "in", label: "हिन्दी" },
+  { code: "bn", flag: "bd", label: "বাংলা" },
+  { code: "ar", flag: "sa", label: "العربية" },
+  { code: "zh", flag: "cn", label: "中文" },
+  { code: "ko", flag: "kr", label: "한국어" },
+  { code: "ja", flag: "jp", label: "日本語" }
+];
+
+// ── Category color map ──
+function catColor(n) {
+  if (n <= 4) return ["emerald", "bg-emerald-500/10 text-emerald-400"];
+  if (n <= 7) return ["blue", "bg-blue-500/10 text-blue-400"];
+  if (n <= 10) return ["amber", "bg-amber-500/10 text-amber-400"];
+  if (n <= 13) return ["purple", "bg-purple-500/10 text-purple-400"];
+  return ["rose", "bg-rose-500/10 text-rose-400"];
+}
+
+// ── Quiz Data (all 15 questions × 14 languages) ──
+const QUIZ = [
+  // Q1
+  {
+    q: {
+      en: "What can users do with KAST?",
+      pt: "O que os usuários podem fazer com o KAST?",
+      es: "¿Qué pueden hacer los usuarios con KAST?",
+      fr: "Que peuvent faire les utilisateurs avec KAST ?",
+      ru: "Что пользователи могут делать с KAST?",
+      pcm: "Wetin users fit do with KAST?",
+      id: "Apa yang bisa dilakukan pengguna dengan KAST?",
+      vi: "Người dùng có thể làm gì với KAST?",
+      hi: "KAST के साथ उपयोगकर्ता क्या कर सकते हैं?",
+      bn: "KAST দিয়ে ব্যবহারকারীরা কী করতে পারে?",
+      ar: "ماذا يمكن للمستخدمين فعله مع KAST؟",
+      zh: "用户可以用 KAST 做什么？",
+      ko: "사용자는 KAST로 무엇을 할 수 있나요?",
+      ja: "KASTで何ができる？"
+    },
+    choices: ["Mine Bitcoin", "Create NFTs", "Hold, send, receive, and spend money globally", "Stake Ethereum validators"],
+    correct: 2,
+    links: [{label: "KAST on X", url: "https://x.com/KASTxyz"}],
+    exp: {
+      en: 'KAST is a stablecoin-powered fintech platform offering three core functions: <strong class="text-white">Store</strong> (hold USD in your account), <strong class="text-white">Move</strong> (send & receive globally), and <strong class="text-white">Spend</strong> (card payments at 150M+ merchants in 170+ countries).',
+      pt: 'O KAST é uma plataforma fintech baseada em stablecoins que oferece três funções principais: <strong class="text-white">Store</strong> (guardar USD na sua conta), <strong class="text-white">Move</strong> (enviar e receber globalmente) e <strong class="text-white">Spend</strong> (pagamentos com cartão em mais de 150 milhões de estabelecimentos em mais de 170 países).',
+      es: 'KAST es una plataforma fintech basada en stablecoins que ofrece tres funciones principales: <strong class="text-white">Store</strong> (guardar USD en tu cuenta), <strong class="text-white">Move</strong> (enviar y recibir globalmente) y <strong class="text-white">Spend</strong> (pagos con tarjeta en más de 150 millones de comercios en más de 170 países).',
+      fr: 'KAST est une plateforme fintech basée sur les stablecoins offrant trois fonctions principales : <strong class="text-white">Store</strong> (conserver des USD sur votre compte), <strong class="text-white">Move</strong> (envoyer et recevoir à l\'international) et <strong class="text-white">Spend</strong> (paiements par carte chez plus de 150 millions de commerçants dans plus de 170 pays).',
+      ru: 'KAST — это финтех-платформа на основе стейблкоинов с тремя основными функциями: <strong class="text-white">Store</strong> (хранение USD на счёте), <strong class="text-white">Move</strong> (отправка и получение по всему миру) и <strong class="text-white">Spend</strong> (оплата картой в более чем 150 млн торговых точках в 170+ странах).',
+      pcm: 'KAST na fintech platform wey dey use stablecoin. E get three main functions: <strong class="text-white">Store</strong> (keep USD for your account), <strong class="text-white">Move</strong> (send and receive money worldwide) and <strong class="text-white">Spend</strong> (pay with card for more than 150 million shops for over 170 countries).',
+      id: 'KAST adalah platform fintech berbasis stablecoin yang menawarkan tiga fungsi utama: <strong class="text-white">Store</strong> (menyimpan USD di akun Anda), <strong class="text-white">Move</strong> (mengirim & menerima secara global), dan <strong class="text-white">Spend</strong> (pembayaran kartu di 150 juta+ merchant di 170+ negara).',
+      vi: 'KAST là một nền tảng fintech dựa trên stablecoin cung cấp ba chức năng cốt lõi: <strong class="text-white">Store</strong> (giữ USD trong tài khoản), <strong class="text-white">Move</strong> (gửi và nhận toàn cầu), và <strong class="text-white">Spend</strong> (thanh toán bằng thẻ tại hơn 150 triệu điểm chấp nhận tại hơn 170 quốc gia).',
+      hi: 'KAST एक स्टेबलकॉइन-संचालित फिनटेक प्लेटफ़ॉर्म है जो तीन मुख्य कार्य प्रदान करता है: <strong class="text-white">Store</strong> (अपने खाते में USD रखें), <strong class="text-white">Move</strong> (वैश्विक स्तर पर भेजें और प्राप्त करें), और <strong class="text-white">Spend</strong> (170+ देशों में 150M+ मर्चेंट पर कार्ड भुगतान)।',
+      bn: 'KAST একটি স্টেবলকয়েন-চালিত ফিনটেক প্ল্যাটফর্ম যা তিনটি মূল কাজ প্রদান করে: <strong class="text-white">Store</strong> (আপনার অ্যাকাউন্টে USD রাখুন), <strong class="text-white">Move</strong> (বিশ্বব্যাপী পাঠান ও গ্রহণ করুন), এবং <strong class="text-white">Spend</strong> (170+ দেশে 150M+ মার্চেন্টে কার্ড পেমেন্ট)।',
+      ar: 'KAST هي منصة تكنولوجيا مالية تعمل بالعملات المستقرة وتقدم ثلاث وظائف رئيسية: <strong class="text-white">Store</strong> (احتفظ بالدولار في حسابك)، <strong class="text-white">Move</strong> (أرسل واستقبل عالمياً)، و<strong class="text-white">Spend</strong> (ادفع بالبطاقة في أكثر من 150 مليون متجر في أكثر من 170 دولة).',
+      zh: 'KAST 是一个以稳定币为基础的金融科技平台，提供三大核心功能：<strong class="text-white">Store</strong>（在账户中持有美元）、<strong class="text-white">Move</strong>（全球收发资金）、<strong class="text-white">Spend</strong>（在170多个国家的1.5亿多商户进行刷卡消费）。',
+      ko: 'KAST는 스테이블코인 기반 핀테크 플랫폼으로 세 가지 핵심 기능을 제공합니다: <strong class="text-white">Store</strong>(계좌에 USD 보관), <strong class="text-white">Move</strong>(전 세계 송금 및 수신), <strong class="text-white">Spend</strong>(170개국 이상 1.5억 이상 가맹점에서 카드 결제).',
+      ja: 'KASTはステーブルコインを基盤としたフィンテックプラットフォームです。<strong class="text-white">Store</strong>（USD口座での資金保管）、<strong class="text-white">Move</strong>（グローバル送金・受取）、<strong class="text-white">Spend</strong>（150カ国以上・1.5億以上の加盟店でのカード決済）という主要機能を提供しています。'
+    }
+  },
+  // Q2
+  {
+    q: {
+      en: "What feature allows users to earn yield on their USD in the app?",
+      pt: "Qual recurso permite aos usuários obter rendimento em USD no aplicativo?",
+      es: "¿Qué función permite a los usuarios obtener rendimiento en USD en la aplicación?",
+      fr: "Quelle fonctionnalité permet aux utilisateurs de générer un rendement sur leurs USD dans l'application ?",
+      ru: "Какая функция позволяет пользователям получать доход на свои USD в приложении?",
+      pcm: "Which feature dey allow users earn yield on top their USD for the app?",
+      id: "Fitur apa yang memungkinkan pengguna mendapatkan imbal hasil atas USD mereka di aplikasi?",
+      vi: "Tính năng nào cho phép người dùng kiếm lợi nhuận trên USD trong ứng dụng?",
+      hi: "ऐप में USD पर यील्ड अर्जित करने की सुविधा कौन सी है?",
+      bn: "অ্যাপে USD-তে ইল্ড অর্জন করতে কোন ফিচারটি ব্যবহারকারীদের সুযোগ দেয়?",
+      ar: "ما الميزة التي تتيح للمستخدمين كسب عائد على الدولار في التطبيق؟",
+      zh: "哪个功能允许用户在应用中赚取美元收益？",
+      ko: "앱에서 USD 수익을 얻을 수 있는 기능은 무엇인가요?",
+      ja: "アプリ内でUSDの利回りを得られる機能は？"
+    },
+    choices: ["KAST Stake", "KAST Rewards", "KAST Boost", "KAST Earn"],
+    correct: 3,
+    links: [{label: "KAST Earn Explained", url: "https://www.kast.xyz/blog/kast-earn-money-work"}],
+    exp: {
+      en: 'KAST Earn lets you deposit USD into the Gauntlet USD Alpha vault — a risk-optimized on-chain vault — and earn yield through on-chain lending. Funds are <strong class="text-white">100% on-chain</strong> with full flexibility to deposit or withdraw at any time.',
+      pt: 'O KAST Earn permite depositar USD no cofre Gauntlet USD Alpha — um cofre on-chain otimizado para risco — e obter rendimento através de empréstimos on-chain. Os fundos são <strong class="text-white">100% on-chain</strong> com total flexibilidade para depositar ou retirar a qualquer momento.',
+      es: 'KAST Earn te permite depositar USD en la bóveda Gauntlet USD Alpha — una bóveda on-chain optimizada para riesgos — y obtener rendimiento a través de préstamos on-chain. Los fondos son <strong class="text-white">100% on-chain</strong> con total flexibilidad para depositar o retirar en cualquier momento.',
+      fr: 'KAST Earn vous permet de déposer des USD dans le coffre Gauntlet USD Alpha — un coffre on-chain optimisé pour le risque — et de générer un rendement via le prêt on-chain. Les fonds sont <strong class="text-white">100% on-chain</strong> avec une flexibilité totale pour déposer ou retirer à tout moment.',
+      ru: 'KAST Earn позволяет внести USD в хранилище Gauntlet USD Alpha — оптимизированное по рискам ончейн-хранилище — и получать доход через ончейн-кредитование. Средства <strong class="text-white">100% в блокчейне</strong> с полной гибкостью вывода и пополнения в любое время.',
+      pcm: 'KAST Earn dey let you put USD inside Gauntlet USD Alpha vault — one on-chain vault wey dey optimized for risk — and earn yield through on-chain lending. The funds dey <strong class="text-white">100% on-chain</strong> and you fit deposit or withdraw anytime.',
+      id: 'KAST Earn memungkinkan Anda menyetor USD ke vault Gauntlet USD Alpha — vault on-chain yang dioptimalkan risikonya — dan mendapatkan imbal hasil melalui pinjaman on-chain. Dana <strong class="text-white">100% on-chain</strong> dengan fleksibilitas penuh untuk setor atau tarik kapan saja.',
+      vi: 'KAST Earn cho phép bạn gửi USD vào kho Gauntlet USD Alpha — một kho on-chain được tối ưu hóa rủi ro — và kiếm lợi nhuận thông qua cho vay on-chain. Quỹ <strong class="text-white">100% on-chain</strong> với sự linh hoạt đầy đủ để gửi hoặc rút bất cứ lúc nào.',
+      hi: 'KAST Earn आपको Gauntlet USD Alpha वॉल्ट — एक जोखिम-अनुकूलित ऑन-चेन वॉल्ट — में USD जमा करने और ऑन-चेन लेंडिंग के माध्यम से यील्ड अर्जित करने की सुविधा देता है। फंड <strong class="text-white">100% ऑन-चेन</strong> हैं और कभी भी जमा या निकासी की जा सकती है।',
+      bn: 'KAST Earn আপনাকে Gauntlet USD Alpha ভল্টে — একটি ঝুঁকি-অপ্টিমাইজড অন-চেইন ভল্ট — USD জমা দিতে এবং অন-চেইন লেন্ডিংয়ের মাধ্যমে ইল্ড অর্জন করতে দেয়। ফান্ড <strong class="text-white">100% অন-চেইন</strong> এবং যেকোনো সময় জমা বা উত্তোলন করা যায়।',
+      ar: 'يتيح لك KAST Earn إيداع الدولار في خزنة Gauntlet USD Alpha — خزنة على السلسلة محسّنة للمخاطر — وكسب عائد من خلال الإقراض على السلسلة. الأموال <strong class="text-white">100% على السلسلة</strong> مع مرونة كاملة للإيداع أو السحب في أي وقت.',
+      zh: 'KAST Earn 允许您将美元存入 Gauntlet USD Alpha 金库——一个风险优化的链上金库——并通过链上借贷赚取收益。资金<strong class="text-white">100%链上</strong>，可随时存取。',
+      ko: 'KAST Earn은 USD를 Gauntlet USD Alpha 볼트(리스크 최적화된 온체인 볼트)에 예치하고 온체인 렌딩을 통해 수익을 얻을 수 있는 기능입니다. 자금은 <strong class="text-white">100% 온체인</strong>이며 언제든 입출금이 가능합니다.',
+      ja: 'KAST Earnは、USDをGauntlet USD Alphaボールト（リスク最適化されたオンチェーンボールト）に預け、オンチェーンレンディングを通じて利回りを獲得できる機能です。資金は<strong class="text-white">100%オンチェーン</strong>で、いつでも入出金が可能です。'
+    }
+  },
+  // Q3
+  {
+    q: {
+      en: "Who manages the on-chain vault used in KAST Earn?",
+      pt: "Quem gerencia o cofre on-chain usado no KAST Earn?",
+      es: "¿Quién gestiona la bóveda on-chain utilizada en KAST Earn?",
+      fr: "Qui gère le coffre on-chain utilisé dans KAST Earn ?",
+      ru: "Кто управляет ончейн-хранилищем, используемым в KAST Earn?",
+      pcm: "Who dey manage the on-chain vault wey KAST Earn dey use?",
+      id: "Siapa yang mengelola vault on-chain yang digunakan di KAST Earn?",
+      vi: "Ai quản lý kho tiền on-chain được sử dụng trong KAST Earn?",
+      hi: "KAST Earn में उपयोग किए जाने वाले ऑन-चेन वॉल्ट का प्रबंधन कौन करता है?",
+      bn: "KAST Earn-এ ব্যবহৃত অন-চেইন ভল্ট কে পরিচালনা করে?",
+      ar: "من يدير الخزنة على السلسلة المستخدمة في KAST Earn؟",
+      zh: "谁管理 KAST Earn 中使用的链上金库？",
+      ko: "KAST Earn에 사용되는 온체인 볼트를 누가 관리하나요?",
+      ja: "KAST Earnのオンチェーンボールトを管理しているのは？"
+    },
+    choices: ["Binance", "Coinbase", "Gauntlet", "Kraken"],
+    correct: 2,
+    links: [{label: "KAST Earn Explained", url: "https://www.kast.xyz/blog/kast-earn-money-work"}],
+    exp: {
+      en: 'Gauntlet is one of the most trusted risk managers in crypto, with <strong class="text-white">8 years of experience</strong> building quantitative DeFi strategies. They operate and optimize the vault using institutional-grade risk management.',
+      pt: 'A Gauntlet é uma das gestoras de risco mais confiáveis em cripto, com <strong class="text-white">8 anos de experiência</strong> construindo estratégias quantitativas de DeFi. Eles operam e otimizam o cofre usando gestão de risco de nível institucional.',
+      es: 'Gauntlet es uno de los gestores de riesgo más confiables en cripto, con <strong class="text-white">8 años de experiencia</strong> construyendo estrategias cuantitativas de DeFi. Operan y optimizan la bóveda usando gestión de riesgos de grado institucional.',
+      fr: 'Gauntlet est l\'un des gestionnaires de risques les plus fiables en crypto, avec <strong class="text-white">8 ans d\'expérience</strong> dans la construction de stratégies DeFi quantitatives. Ils exploitent et optimisent le coffre avec une gestion des risques de niveau institutionnel.',
+      ru: 'Gauntlet — один из самых надёжных риск-менеджеров в крипто, с <strong class="text-white">8-летним опытом</strong> построения количественных DeFi-стратегий. Они управляют и оптимизируют хранилище, используя институциональный подход к управлению рисками.',
+      pcm: 'Gauntlet na one of the most trusted risk managers for crypto, with <strong class="text-white">8 years experience</strong> dey build quantitative DeFi strategies. Dem dey operate and optimize the vault using institutional-grade risk management.',
+      id: 'Gauntlet adalah salah satu manajer risiko paling tepercaya di kripto, dengan <strong class="text-white">pengalaman 8 tahun</strong> membangun strategi DeFi kuantitatif. Mereka mengoperasikan dan mengoptimalkan vault menggunakan manajemen risiko tingkat institusional.',
+      vi: 'Gauntlet là một trong những nhà quản lý rủi ro đáng tin cậy nhất trong lĩnh vực crypto, với <strong class="text-white">8 năm kinh nghiệm</strong> xây dựng các chiến lược DeFi định lượng. Họ vận hành và tối ưu hóa kho bằng quản lý rủi ro cấp tổ chức.',
+      hi: 'Gauntlet क्रिप्टो में सबसे विश्वसनीय जोखिम प्रबंधकों में से एक है, जिसके पास मात्रात्मक DeFi रणनीतियाँ बनाने का <strong class="text-white">8 वर्षों का अनुभव</strong> है। वे संस्थागत-स्तर के जोखिम प्रबंधन का उपयोग करके वॉल्ट का संचालन और अनुकूलन करते हैं।',
+      bn: 'Gauntlet ক্রিপ্টোতে সবচেয়ে বিশ্বস্ত রিস্ক ম্যানেজারদের একটি, কোয়ান্টিটেটিভ DeFi কৌশল তৈরিতে <strong class="text-white">৮ বছরের অভিজ্ঞতা</strong> রয়েছে। তারা প্রাতিষ্ঠানিক-মানের রিস্ক ম্যানেজমেন্ট ব্যবহার করে ভল্ট পরিচালনা ও অপ্টিমাইজ করে।',
+      ar: 'Gauntlet هي واحدة من أكثر مديري المخاطر ثقة في عالم الكريبتو، مع <strong class="text-white">8 سنوات من الخبرة</strong> في بناء استراتيجيات DeFi الكمية. يقومون بتشغيل وتحسين الخزنة باستخدام إدارة مخاطر بمستوى مؤسسي.',
+      zh: 'Gauntlet 是加密领域最受信赖的风险管理者之一，拥有<strong class="text-white">8年</strong>构建量化DeFi策略的经验。他们使用机构级风险管理来运营和优化金库。',
+      ko: 'Gauntlet은 <strong class="text-white">8년간의 경험</strong>으로 정량적 DeFi 전략을 구축해 온 암호화폐 분야에서 가장 신뢰받는 리스크 매니저 중 하나입니다. 기관 등급의 리스크 관리를 사용하여 볼트를 운영하고 최적화합니다.',
+      ja: 'Gauntletは暗号資産で最も信頼されるリスク管理者の1つで、<strong class="text-white">定量的DeFi戦略の構築に8年の経験</strong>があります。機関投資家グレードのリスク管理を使用してボールトを運用・最適化しています。'
+    }
+  },
+  // Q4
+  {
+    q: {
+      en: "What does KAST Pay allow users to do?",
+      pt: "O que o KAST Pay permite aos usuários fazer?",
+      es: "¿Qué permite hacer KAST Pay a los usuarios?",
+      fr: "Que permet KAST Pay aux utilisateurs de faire ?",
+      ru: "Что позволяет делать KAST Pay?",
+      pcm: "Wetin KAST Pay dey allow users do?",
+      id: "Apa yang memungkinkan pengguna lakukan dengan KAST Pay?",
+      vi: "KAST Pay cho phép người dùng làm gì?",
+      hi: "KAST Pay उपयोगकर्ताओं को क्या करने की अनुमति देता है?",
+      bn: "KAST Pay ব্যবহারকারীদের কী করতে দেয়?",
+      ar: "ماذا يتيح KAST Pay للمستخدمين؟",
+      zh: "KAST Pay 允许用户做什么？",
+      ko: "KAST Pay는 사용자가 무엇을 할 수 있게 하나요?",
+      ja: "KAST Payでできることは？"
+    },
+    choices: ["Mine stablecoins", "Convert and transfer money across crypto and fiat rails", "Trade NFTs", "Build smart contracts"],
+    correct: 1,
+    links: [{label: "KAST Pay Explained", url: "https://www.kast.xyz/blog/kast-pay-is-here-your-complete-payment-solution"}],
+    exp: {
+      en: 'KAST Pay is an <strong class="text-white">all-in-one payment solution</strong> bridging crypto and traditional finance. It enables instant conversion and transfer of funds across crypto and fiat rails without the delays of traditional banking. It supports local bank payouts in BRL, INR, PHP, THB, USD, and more.',
+      pt: 'O KAST Pay é uma <strong class="text-white">solução de pagamento tudo-em-um</strong> que conecta cripto e finanças tradicionais. Permite conversão e transferência instantânea de fundos entre trilhos cripto e fiat sem os atrasos dos bancos tradicionais. Suporta pagamentos bancários locais em BRL, INR, PHP, THB, USD e mais.',
+      es: 'KAST Pay es una <strong class="text-white">solución de pago todo en uno</strong> que conecta cripto y finanzas tradicionales. Permite la conversión y transferencia instantánea de fondos entre rieles cripto y fiat sin las demoras de la banca tradicional.',
+      fr: 'KAST Pay est une <strong class="text-white">solution de paiement tout-en-un</strong> reliant crypto et finance traditionnelle. Elle permet la conversion et le transfert instantanés de fonds entre les rails crypto et fiat sans les délais bancaires traditionnels.',
+      ru: 'KAST Pay — это <strong class="text-white">универсальное платёжное решение</strong>, объединяющее крипто и традиционные финансы. Оно обеспечивает мгновенную конвертацию и перевод средств между крипто- и фиатными рельсами без задержек традиционного банкинга.',
+      pcm: 'KAST Pay na <strong class="text-white">all-in-one payment solution</strong> wey dey bridge crypto and traditional finance. E dey allow instant conversion and transfer of funds between crypto and fiat rails without the delay wey traditional banking dey bring.',
+      id: 'KAST Pay adalah <strong class="text-white">solusi pembayaran all-in-one</strong> yang menjembatani kripto dan keuangan tradisional. Memungkinkan konversi dan transfer dana instan antara jalur kripto dan fiat tanpa penundaan perbankan tradisional.',
+      vi: 'KAST Pay là <strong class="text-white">giải pháp thanh toán tất-cả-trong-một</strong> kết nối crypto và tài chính truyền thống. Cho phép chuyển đổi và chuyển tiền tức thì giữa các kênh crypto và fiat mà không có sự chậm trễ của ngân hàng truyền thống.',
+      hi: 'KAST Pay एक <strong class="text-white">ऑल-इन-वन भुगतान समाधान</strong> है जो क्रिप्टो और पारंपरिक वित्त को जोड़ता है। यह पारंपरिक बैंकिंग की देरी के बिना क्रिप्टो और फिएट रेल के बीच धन का तुरंत रूपांतरण और हस्तांतरण सक्षम करता है।',
+      bn: 'KAST Pay হল একটি <strong class="text-white">অল-ইন-ওয়ান পেমেন্ট সলিউশন</strong> যা ক্রিপ্টো এবং ঐতিহ্যবাহী অর্থব্যবস্থার মধ্যে সেতু তৈরি করে। এটি ঐতিহ্যবাহী ব্যাংকিংয়ের বিলম্ব ছাড়াই তাৎক্ষণিক রূপান্তর এবং স্থানান্তর সক্ষম করে।',
+      ar: 'KAST Pay هو <strong class="text-white">حل دفع شامل</strong> يربط بين الكريبتو والتمويل التقليدي. يتيح التحويل والنقل الفوري للأموال عبر مسارات الكريبتو والعملات التقليدية دون تأخيرات البنوك التقليدية.',
+      zh: 'KAST Pay 是一个<strong class="text-white">一站式支付解决方案</strong>，连接加密货币与传统金融。它支持在加密和法币通道之间即时转换和转账，无需传统银行的延迟。',
+      ko: 'KAST Pay는 암호화폐와 전통 금융을 연결하는 <strong class="text-white">올인원 결제 솔루션</strong>입니다. 기존 은행의 지연 없이 암호화폐와 법정화폐 레일 간 즉각적인 전환과 이체를 가능하게 합니다.',
+      ja: 'KAST Payは暗号資産と従来の金融を橋渡しする<strong class="text-white">オールインワン決済ソリューション</strong>です。従来の銀行に伴う遅延なしに、暗号とフィアットレール間で資金を即時変換・送金できます。BRL、INR、PHP、THB、USDなど複数通貨でローカル銀行口座への送金に対応しています。'
+    }
+  },
+  // Q5
+  {
+    q: {
+      en: "Who is the Founder and CEO of KAST?",
+      pt: "Quem é o Fundador e CEO da KAST?",
+      es: "¿Quién es el Fundador y CEO de KAST?",
+      fr: "Qui est le Fondateur et PDG de KAST ?",
+      ru: "Кто является основателем и генеральным директором KAST?",
+      pcm: "Who be the Founder and CEO of KAST?",
+      id: "Siapa Pendiri dan CEO KAST?",
+      vi: "Ai là Nhà sáng lập và CEO của KAST?",
+      hi: "KAST के संस्थापक और CEO कौन हैं?",
+      bn: "KAST-এর প্রতিষ্ঠাতা এবং CEO কে?",
+      ar: "من هو مؤسس والرئيس التنفيذي لـ KAST؟",
+      zh: "KAST 的创始人兼 CEO 是谁？",
+      ko: "KAST의 창립자 겸 CEO는 누구인가요?",
+      ja: "KASTの創業者兼CEOは誰？"
+    },
+    choices: ["Vitalik Buterin", "Brian Armstrong", "Raagulan Pathy", "Changpeng Zhao"],
+    correct: 2,
+    links: [{label: "Raagulan on X", url: "https://x.com/raagulanpathy"}],
+    exp: {
+      en: 'Raagulan Pathy is the Co-Founder and CEO of KAST. He previously served as <strong class="text-white">VP of Circle APAC and CEO of Circle Singapore</strong>. He has stated: "Banks are fundamentally broken — they don\'t match the openness and speed of the internet."',
+      pt: 'Raagulan Pathy é o Cofundador e CEO da KAST. Anteriormente atuou como <strong class="text-white">VP da Circle APAC e CEO da Circle Singapura</strong>. Ele declarou: "Os bancos estão fundamentalmente quebrados."',
+      es: 'Raagulan Pathy es el Cofundador y CEO de KAST. Anteriormente se desempeñó como <strong class="text-white">VP de Circle APAC y CEO de Circle Singapur</strong>. Ha declarado: "Los bancos están fundamentalmente rotos."',
+      fr: 'Raagulan Pathy est le Cofondateur et PDG de KAST. Il a précédemment occupé le poste de <strong class="text-white">VP de Circle APAC et PDG de Circle Singapour</strong>. Il a déclaré : « Les banques sont fondamentalement cassées. »',
+      ru: 'Раагулан Пати — сооснователь и генеральный директор KAST. Ранее занимал должность <strong class="text-white">вице-президента Circle APAC и генерального директора Circle Singapore</strong>.',
+      pcm: 'Raagulan Pathy na the Co-Founder and CEO of KAST. Before, e be <strong class="text-white">VP of Circle APAC and CEO of Circle Singapore</strong>. E don talk say: "Banks don fundamentally break."',
+      id: 'Raagulan Pathy adalah Co-Founder dan CEO KAST. Sebelumnya menjabat sebagai <strong class="text-white">VP Circle APAC dan CEO Circle Singapura</strong>. Ia menyatakan: "Bank secara fundamental sudah rusak."',
+      vi: 'Raagulan Pathy là Đồng sáng lập và CEO của KAST. Ông từng giữ chức <strong class="text-white">VP Circle APAC và CEO Circle Singapore</strong>. Ông phát biểu: "Ngân hàng về cơ bản đã hỏng."',
+      hi: 'राागुलन पैथी KAST के सह-संस्थापक और CEO हैं। वे पहले <strong class="text-white">Circle APAC के VP और Circle Singapore के CEO</strong> रहे हैं।',
+      bn: 'রাগুলান প্যাথি KAST-এর সহ-প্রতিষ্ঠাতা ও CEO। তিনি পূর্বে <strong class="text-white">Circle APAC-এর VP এবং Circle Singapore-এর CEO</strong> ছিলেন।',
+      ar: 'راغولان باثي هو المؤسس المشارك والرئيس التنفيذي لـ KAST. شغل سابقاً منصب <strong class="text-white">نائب رئيس Circle APAC والرئيس التنفيذي لـ Circle سنغافورة</strong>.',
+      zh: 'Raagulan Pathy 是 KAST 的联合创始人兼 CEO。他曾担任 <strong class="text-white">Circle APAC 副总裁兼 Circle 新加坡 CEO</strong>。',
+      ko: 'Raagulan Pathy는 KAST의 공동 창립자 겸 CEO입니다. 이전에 <strong class="text-white">Circle APAC VP 겸 Circle Singapore CEO</strong>를 역임했습니다.',
+      ja: 'ラグラン・パシーはKASTの共同創設者兼CEOです。<strong class="text-white">元Circle APAC VP兼シンガポールCEO</strong>の経歴を持ち、ステーブルコインによる金融ソリューションを推進しています。'
+    }
+  },
+  // Q6
+  {
+    q: {
+      en: "Where was Raagulan born?",
+      pt: "Onde Raagulan nasceu?",
+      es: "¿Dónde nació Raagulan?",
+      fr: "Où est né Raagulan ?",
+      ru: "Где родился Раагулан?",
+      pcm: "Where Raagulan born?",
+      id: "Di mana Raagulan lahir?",
+      vi: "Raagulan sinh ra ở đâu?",
+      hi: "राागुलन का जन्म कहाँ हुआ था?",
+      bn: "রাগুলান কোথায় জন্মগ্রহণ করেছিলেন?",
+      ar: "أين وُلد راغولان؟",
+      zh: "Raagulan 出生在哪里？",
+      ko: "Raagulan은 어디에서 태어났나요?",
+      ja: "CEOのRaagulanはどこで生まれた？"
+    },
+    choices: ["Sri Lanka", "Mumbai", "Australia", "Singapore"],
+    correct: 0,
+    links: [{label: "Raagulan's post on X", url: "https://x.com/raagulanpathy/status/1828978292210446528"}],
+    exp: {
+      en: 'Raagulan Pathy is a <strong class="text-white">Sri Lankan-born Tamil Australian</strong> who moved from Sri Lanka to Australia at age 5.',
+      pt: 'Raagulan Pathy é um <strong class="text-white">australiano tâmil nascido no Sri Lanka</strong> que se mudou do Sri Lanka para a Austrália aos 5 anos.',
+      es: 'Raagulan Pathy es un <strong class="text-white">australiano tamil nacido en Sri Lanka</strong> que se mudó de Sri Lanka a Australia a los 5 años.',
+      fr: 'Raagulan Pathy est un <strong class="text-white">Australien tamoul né au Sri Lanka</strong> qui a déménagé du Sri Lanka en Australie à l\'âge de 5 ans.',
+      ru: 'Раагулан Пати — <strong class="text-white">тамильский австралиец, родившийся в Шри-Ланке</strong>, переехавший в Австралию в возрасте 5 лет.',
+      pcm: 'Raagulan Pathy na <strong class="text-white">Tamil Australian wey born for Sri Lanka</strong>, e move from Sri Lanka go Australia when e be 5 years old.',
+      id: 'Raagulan Pathy adalah <strong class="text-white">warga Australia keturunan Tamil yang lahir di Sri Lanka</strong>, pindah dari Sri Lanka ke Australia pada usia 5 tahun.',
+      vi: 'Raagulan Pathy là một <strong class="text-white">người Úc gốc Tamil sinh ra tại Sri Lanka</strong>, chuyển từ Sri Lanka sang Úc khi 5 tuổi.',
+      hi: 'राागुलन पैथी <strong class="text-white">श्रीलंका में जन्मे तमिल ऑस्ट्रेलियाई</strong> हैं जो 5 साल की उम्र में श्रीलंका से ऑस्ट्रेलिया चले गए।',
+      bn: 'রাগুলান প্যাথি <strong class="text-white">শ্রীলঙ্কায় জন্মগ্রহণকারী তামিল অস্ট্রেলীয়</strong> যিনি ৫ বছর বয়সে শ্রীলঙ্কা থেকে অস্ট্রেলিয়ায় চলে যান।',
+      ar: 'راغولان باثي هو <strong class="text-white">أسترالي تاميلي وُلد في سريلانكا</strong> وانتقل من سريلانكا إلى أستراليا في سن الخامسة.',
+      zh: 'Raagulan Pathy 是一位<strong class="text-white">出生于斯里兰卡的泰米尔裔澳大利亚人</strong>，5岁时从斯里兰卡移居澳大利亚。',
+      ko: 'Raagulan Pathy는 <strong class="text-white">스리랑카 태생의 타밀계 호주인</strong>으로, 5세에 스리랑카에서 호주로 이주했습니다.',
+      ja: 'ラグラン・パシーは<strong class="text-white">スリランカ生まれのタミル系オーストラリア人</strong>で、5歳の時にスリランカからオーストラリアに移住しました。'
+    }
+  },
+  // Q7
+  {
+    q: {
+      en: "How much has KAST raised in investments so far?",
+      pt: "Quanto a KAST levantou em investimentos até agora?",
+      es: "¿Cuánto ha recaudado KAST en inversiones hasta ahora?",
+      fr: "Combien KAST a-t-il levé en investissements jusqu'à présent ?",
+      ru: "Сколько инвестиций привлёк KAST на данный момент?",
+      pcm: "How much KAST don raise for investments so far?",
+      id: "Berapa banyak yang telah dikumpulkan KAST dalam investasi sejauh ini?",
+      vi: "KAST đã huy động được bao nhiêu vốn đầu tư cho đến nay?",
+      hi: "KAST ने अब तक निवेश में कितना जुटाया है?",
+      bn: "KAST এখন পর্যন্ত বিনিয়োগে কত তহবিল সংগ্রহ করেছে?",
+      ar: "كم جمعت KAST من الاستثمارات حتى الآن؟",
+      zh: "KAST 迄今为止融资了多少？",
+      ko: "KAST는 지금까지 투자금을 얼마나 유치했나요?",
+      ja: "KASTの累計資金調達額は？"
+    },
+    choices: ["$60M", "$70M", "$80M", "$90M"],
+    correct: 3,
+    links: [{label: "Seed Round", url: "https://www.kast.xyz/blog/kast-secures-us-10-million-seed-round"}, {label: "Series A", url: "https://www.kast.xyz/blog/kast-announces-80m-series-a"}],
+    exp: {
+      en: 'KAST raised <strong class="text-white">$10M in its Seed round</strong> (led by HSG and Peak XV Partners) and <strong class="text-white">$80M in its Series A</strong> (co-led by QED Investors and Left Lane Capital), totaling <strong class="text-white">$90M</strong> in funding.',
+      pt: 'A KAST levantou <strong class="text-white">US$ 10M na rodada Seed</strong> (liderada por HSG e Peak XV Partners) e <strong class="text-white">US$ 80M na Série A</strong> (co-liderada por QED Investors e Left Lane Capital), totalizando <strong class="text-white">US$ 90M</strong>.',
+      es: 'KAST recaudó <strong class="text-white">$10M en su ronda Seed</strong> (liderada por HSG y Peak XV Partners) y <strong class="text-white">$80M en su Serie A</strong> (co-liderada por QED Investors y Left Lane Capital), totalizando <strong class="text-white">$90M</strong>.',
+      fr: 'KAST a levé <strong class="text-white">10 M$ lors de son tour Seed</strong> (mené par HSG et Peak XV Partners) et <strong class="text-white">80 M$ lors de sa Série A</strong> (co-menée par QED Investors et Left Lane Capital), totalisant <strong class="text-white">90 M$</strong>.',
+      ru: 'KAST привлёк <strong class="text-white">$10 млн в раунде Seed</strong> (лидеры — HSG и Peak XV Partners) и <strong class="text-white">$80 млн в раунде Series A</strong> (солидеры — QED Investors и Left Lane Capital), всего <strong class="text-white">$90 млн</strong>.',
+      pcm: 'KAST raise <strong class="text-white">$10M for the Seed round</strong> (HSG and Peak XV Partners lead am) and <strong class="text-white">$80M for Series A</strong> (QED Investors and Left Lane Capital co-lead am), total na <strong class="text-white">$90M</strong>.',
+      id: 'KAST mengumpulkan <strong class="text-white">$10 juta di putaran Seed</strong> (dipimpin HSG dan Peak XV Partners) dan <strong class="text-white">$80 juta di Series A</strong> (dipimpin bersama QED Investors dan Left Lane Capital), total <strong class="text-white">$90 juta</strong>.',
+      vi: 'KAST đã huy động <strong class="text-white">10 triệu USD trong vòng Seed</strong> (dẫn đầu bởi HSG và Peak XV Partners) và <strong class="text-white">80 triệu USD trong Series A</strong> (đồng dẫn đầu bởi QED Investors và Left Lane Capital), tổng cộng <strong class="text-white">90 triệu USD</strong>.',
+      hi: 'KAST ने <strong class="text-white">सीड राउंड में $10M</strong> (HSG और Peak XV Partners के नेतृत्व में) और <strong class="text-white">सीरीज A में $80M</strong> (QED Investors और Left Lane Capital के सह-नेतृत्व में) जुटाए, कुल <strong class="text-white">$90M</strong>।',
+      bn: 'KAST <strong class="text-white">সিড রাউন্ডে $10M</strong> (HSG এবং Peak XV Partners নেতৃত্বে) এবং <strong class="text-white">সিরিজ A-তে $80M</strong> (QED Investors এবং Left Lane Capital সহ-নেতৃত্বে) সংগ্রহ করেছে, মোট <strong class="text-white">$90M</strong>।',
+      ar: 'جمعت KAST <strong class="text-white">10 مليون دولار في جولة Seed</strong> (بقيادة HSG وPeak XV Partners) و<strong class="text-white">80 مليون دولار في Series A</strong> (بقيادة مشتركة من QED Investors وLeft Lane Capital)، بإجمالي <strong class="text-white">90 مليون دولار</strong>.',
+      zh: 'KAST 在<strong class="text-white">种子轮融资 $10M</strong>（由 HSG 和 Peak XV Partners 领投）和<strong class="text-white">A 轮融资 $80M</strong>（由 QED Investors 和 Left Lane Capital 联合领投），总计<strong class="text-white">$90M</strong>。',
+      ko: 'KAST는 <strong class="text-white">시드 라운드에서 $10M</strong>(HSG, Peak XV Partners 리드)과 <strong class="text-white">시리즈 A에서 $80M</strong>(QED Investors, Left Lane Capital 공동 리드)을 조달하여 총 <strong class="text-white">$90M</strong>을 유치했습니다.',
+      ja: 'KASTはシードラウンドで<strong class="text-white">1,000万ドル</strong>（HSG、Peak XV Partners等がリード）、シリーズAで<strong class="text-white">8,000万ドル</strong>（QED Investors、Left Lane Capitalが共同リード）を調達し、<strong class="text-white">合計9,000万ドル</strong>の資金調達を達成しています。'
+    }
+  },
+  // Q8
+  {
+    q: {
+      en: "How is KAST's customer service called?",
+      pt: "Como se chama o serviço de atendimento ao cliente da KAST?",
+      es: "¿Cómo se llama el servicio de atención al cliente de KAST?",
+      fr: "Comment s'appelle le service client de KAST ?",
+      ru: "Как называется служба поддержки KAST?",
+      pcm: "Wetin be the name of KAST customer service?",
+      id: "Apa nama layanan pelanggan KAST?",
+      vi: "Dịch vụ khách hàng của KAST được gọi là gì?",
+      hi: "KAST की ग्राहक सेवा को क्या कहा जाता है?",
+      bn: "KAST-এর গ্রাহক সেবার নাম কী?",
+      ar: "ما اسم خدمة عملاء KAST؟",
+      zh: "KAST 的客服叫什么名字？",
+      ko: "KAST의 고객 서비스 명칭은 무엇인가요?",
+      ja: "KASTのカスタマーサービスの名称は？"
+    },
+    choices: ["Help Center", "Support Team", "Concierge"],
+    correct: 2,
+    links: [{label: "KAST Concierge", url: "https://concierge.kast.xyz/"}],
+    exp: {
+      en: 'KAST\'s customer support is branded as "<strong class="text-white">Concierge</strong>." The support portal runs at concierge.kast.xyz, and higher card tiers (Limited, Luxe) include <strong class="text-white">VIP Concierge</strong> with exclusive access to the KAST senior team.',
+      pt: 'O suporte ao cliente da KAST é chamado "<strong class="text-white">Concierge</strong>." O portal de suporte funciona em concierge.kast.xyz, e os tiers superiores incluem <strong class="text-white">VIP Concierge</strong>.',
+      es: 'El soporte al cliente de KAST se llama "<strong class="text-white">Concierge</strong>." El portal de soporte funciona en concierge.kast.xyz, y los niveles superiores incluyen <strong class="text-white">VIP Concierge</strong>.',
+      fr: 'Le support client de KAST est appelé « <strong class="text-white">Concierge</strong> ». Le portail est hébergé sur concierge.kast.xyz, et les niveaux supérieurs incluent un <strong class="text-white">VIP Concierge</strong>.',
+      ru: 'Служба поддержки KAST называется «<strong class="text-white">Concierge</strong>». Портал поддержки работает на concierge.kast.xyz, а для высших уровней предоставляется <strong class="text-white">VIP Concierge</strong>.',
+      pcm: 'KAST customer support name na "<strong class="text-white">Concierge</strong>." The support portal dey run for concierge.kast.xyz, and higher card tiers get <strong class="text-white">VIP Concierge</strong>.',
+      id: 'Dukungan pelanggan KAST diberi merek "<strong class="text-white">Concierge</strong>." Portal dukungan beroperasi di concierge.kast.xyz, dan tier kartu lebih tinggi mencakup <strong class="text-white">VIP Concierge</strong>.',
+      vi: 'Bộ phận hỗ trợ khách hàng của KAST mang thương hiệu "<strong class="text-white">Concierge</strong>". Cổng hỗ trợ hoạt động tại concierge.kast.xyz, và các hạng thẻ cao hơn bao gồm <strong class="text-white">VIP Concierge</strong>.',
+      hi: 'KAST का ग्राहक सहायता "<strong class="text-white">Concierge</strong>" ब्रांड नाम से प्रदान किया जाता है। उच्च कार्ड टियर में <strong class="text-white">VIP Concierge</strong> शामिल है।',
+      bn: 'KAST-এর গ্রাহক সহায়তা "<strong class="text-white">Concierge</strong>" ব্র্যান্ড নামে পরিচালিত হয়। উচ্চ কার্ড টিয়ারে <strong class="text-white">VIP Concierge</strong> অন্তর্ভুক্ত।',
+      ar: 'يُسمى دعم عملاء KAST "<strong class="text-white">Concierge</strong>". تشمل مستويات البطاقات العليا <strong class="text-white">VIP Concierge</strong>.',
+      zh: 'KAST 的客户支持品牌名称为"<strong class="text-white">Concierge</strong>"。高级卡等级包含 <strong class="text-white">VIP Concierge</strong>。',
+      ko: 'KAST의 고객 지원은 "<strong class="text-white">Concierge</strong>"라는 브랜드명으로 제공됩니다. 상위 카드 티어에는 <strong class="text-white">VIP Concierge</strong>가 포함됩니다.',
+      ja: 'KASTのカスタマーサポートは「<strong class="text-white">Concierge</strong>」というブランド名で提供されています。上位カードティアではKASTシニアチームへの独占アクセスを含む「<strong class="text-white">VIP Concierge</strong>」が利用可能です。'
+    }
+  },
+  // Q9
+  {
+    q: {
+      en: "How many grams of gold are in the Solid Gold Card?",
+      pt: "Quantas gramas de ouro há no Solid Gold Card?",
+      es: "¿Cuántos gramos de oro tiene la Solid Gold Card?",
+      fr: "Combien de grammes d'or contient la Solid Gold Card ?",
+      ru: "Сколько граммов золота в карте Solid Gold?",
+      pcm: "How many grams of gold dey inside the Solid Gold Card?",
+      id: "Berapa gram emas di Solid Gold Card?",
+      vi: "Thẻ Solid Gold Card chứa bao nhiêu gram vàng?",
+      hi: "Solid Gold Card में कितने ग्राम सोना है?",
+      bn: "Solid Gold Card-এ কত গ্রাম সোনা আছে?",
+      ar: "كم غراماً من الذهب في بطاقة Solid Gold Card؟",
+      zh: "Solid Gold Card 含有多少克黄金？",
+      ko: "Solid Gold Card에는 몇 그램의 금이 들어 있나요?",
+      ja: "Solid Gold Cardの金の重さは？"
+    },
+    choices: ["30g", "33g", "37g", "39g"],
+    correct: 2,
+    links: [{label: "KAST post on X", url: "https://x.com/KASTxyz/status/1972003590937117154"}],
+    exp: {
+      en: 'The Luxe-tier "Solana Solid Gold Card" is made of <strong class="text-white">37g of solid gold</strong> — the only one on the market. It is available by <strong class="text-white">invitation only</strong>.',
+      pt: 'O "Solana Solid Gold Card" do tier Luxe é feito de <strong class="text-white">37g de ouro maciço</strong> — o único no mercado. Disponível apenas por <strong class="text-white">convite</strong>.',
+      es: 'La "Solana Solid Gold Card" del tier Luxe está hecha de <strong class="text-white">37g de oro macizo</strong> — la única en el mercado. Disponible solo por <strong class="text-white">invitación</strong>.',
+      fr: 'La « Solana Solid Gold Card » du tier Luxe est fabriquée en <strong class="text-white">37g d\'or massif</strong> — la seule sur le marché. Disponible uniquement sur <strong class="text-white">invitation</strong>.',
+      ru: 'Карта «Solana Solid Gold Card» уровня Luxe изготовлена из <strong class="text-white">37 г чистого золота</strong> — единственная на рынке. Доступна только по <strong class="text-white">приглашению</strong>.',
+      pcm: 'The Luxe-tier "Solana Solid Gold Card" dey made of <strong class="text-white">37g of solid gold</strong> — na the only one for the market. E dey available by <strong class="text-white">invitation only</strong>.',
+      id: '"Solana Solid Gold Card" tier Luxe terbuat dari <strong class="text-white">37g emas murni</strong> — satu-satunya di pasar. Hanya tersedia melalui <strong class="text-white">undangan</strong>.',
+      vi: 'Thẻ "Solana Solid Gold Card" hạng Luxe được làm từ <strong class="text-white">37g vàng nguyên chất</strong> — duy nhất trên thị trường. Chỉ có sẵn theo <strong class="text-white">lời mời</strong>.',
+      hi: 'Luxe-टियर "Solana Solid Gold Card" <strong class="text-white">37 ग्राम शुद्ध सोने</strong> से बना है — बाजार में एकमात्र। यह केवल <strong class="text-white">आमंत्रण</strong> द्वारा उपलब्ध है।',
+      bn: 'Luxe-টিয়ার "Solana Solid Gold Card" <strong class="text-white">37 গ্রাম খাঁটি সোনা</strong> দিয়ে তৈরি — বাজারে একমাত্র। এটি শুধুমাত্র <strong class="text-white">আমন্ত্রণের</strong> মাধ্যমে পাওয়া যায়।',
+      ar: 'بطاقة "Solana Solid Gold Card" من فئة Luxe مصنوعة من <strong class="text-white">37 غراماً من الذهب الخالص</strong> — الوحيدة في السوق. متاحة <strong class="text-white">بدعوة فقط</strong>.',
+      zh: 'Luxe 等级的"Solana Solid Gold Card"由 <strong class="text-white">37 克纯金</strong>制成——市场上独一无二。仅限<strong class="text-white">受邀</strong>获得。',
+      ko: 'Luxe 티어 "Solana Solid Gold Card"는 <strong class="text-white">37g 순금</strong>으로 제작되었으며 — 시장에서 유일합니다. <strong class="text-white">초대제</strong>로만 이용 가능합니다.',
+      ja: 'Luxeティアの「Solana Solid Gold Card」は<strong class="text-white">37gの純金</strong>で作られた、市場で唯一のソリッドゴールドカードです。招待制（Invite Only）での提供となっています。'
+    }
+  },
+  // Q10
+  {
+    q: {
+      en: "What is the maximum cashback (KAST Points + $MOVE Rewards) that KAST provides?",
+      pt: "Qual é o cashback máximo (KAST Points + $MOVE Rewards) que a KAST oferece?",
+      es: "¿Cuál es el cashback máximo (KAST Points + $MOVE Rewards) que KAST ofrece?",
+      fr: "Quel est le cashback maximum (KAST Points + $MOVE Rewards) offert par KAST ?",
+      ru: "Какой максимальный кэшбэк (KAST Points + $MOVE Rewards) предоставляет KAST?",
+      pcm: "Wetin be the maximum cashback (KAST Points + $MOVE Rewards) wey KAST dey give?",
+      id: "Berapa cashback maksimum (KAST Points + $MOVE Rewards) yang diberikan KAST?",
+      vi: "Mức hoàn tiền tối đa (KAST Points + $MOVE Rewards) mà KAST cung cấp là bao nhiêu?",
+      hi: "KAST द्वारा प्रदान किया जाने वाला अधिकतम कैशबैक (KAST Points + $MOVE Rewards) कितना है?",
+      bn: "KAST সর্বাধিক কত ক্যাশব্যাক (KAST Points + $MOVE Rewards) প্রদান করে?",
+      ar: "ما هو أقصى استرداد نقدي (KAST Points + $MOVE Rewards) تقدمه KAST؟",
+      zh: "KAST 提供的最高返现（KAST Points + $MOVE Rewards）是多少？",
+      ko: "KAST가 제공하는 최대 캐시백(KAST Points + $MOVE Rewards)은 얼마인가요?",
+      ja: "KASTの最大キャッシュバック率は？（KASTポイント＋$MOVEリワード合計）"
+    },
+    choices: ["8%", "10%", "11%", "12%"],
+    correct: 3,
+    links: [{label: "KAST Cards Explained", url: "https://academy.kast.xyz/en-us/articles/kast-cards-explained"}],
+    exp: {
+      en: 'KAST uses a tiered rewards system. The top-tier <strong class="text-white">Luxe</strong> provides <strong class="text-white">8% KAST Points + 4% MOVE Rewards = 12% total</strong>. Breakdown: Standard 6%, Premium/Limited 9%, Luxe 12%.',
+      pt: 'A KAST usa um sistema de recompensas em níveis. O tier mais alto <strong class="text-white">Luxe</strong> oferece <strong class="text-white">8% KAST Points + 4% MOVE Rewards = 12% total</strong>.',
+      es: 'KAST usa un sistema de recompensas por niveles. El nivel más alto <strong class="text-white">Luxe</strong> ofrece <strong class="text-white">8% KAST Points + 4% MOVE Rewards = 12% total</strong>.',
+      fr: 'KAST utilise un système de récompenses par niveaux. Le niveau le plus élevé <strong class="text-white">Luxe</strong> offre <strong class="text-white">8% KAST Points + 4% MOVE Rewards = 12% total</strong>.',
+      ru: 'KAST использует многоуровневую систему вознаграждений. Высший уровень <strong class="text-white">Luxe</strong> даёт <strong class="text-white">8% KAST Points + 4% MOVE Rewards = 12% всего</strong>.',
+      pcm: 'KAST dey use tiered rewards system. The highest tier <strong class="text-white">Luxe</strong> dey give <strong class="text-white">8% KAST Points + 4% MOVE Rewards = 12% total</strong>.',
+      id: 'KAST menggunakan sistem reward berjenjang. Tier tertinggi <strong class="text-white">Luxe</strong> memberikan <strong class="text-white">8% KAST Points + 4% MOVE Rewards = total 12%</strong>.',
+      vi: 'KAST sử dụng hệ thống phần thưởng theo cấp bậc. Cấp cao nhất <strong class="text-white">Luxe</strong> cung cấp <strong class="text-white">8% KAST Points + 4% MOVE Rewards = tổng 12%</strong>.',
+      hi: 'KAST एक टियर-आधारित रिवॉर्ड सिस्टम का उपयोग करता है। शीर्ष-टियर <strong class="text-white">Luxe</strong> <strong class="text-white">8% KAST Points + 4% MOVE Rewards = कुल 12%</strong> प्रदान करता है।',
+      bn: 'KAST একটি টিয়ার-ভিত্তিক রিওয়ার্ড সিস্টেম ব্যবহার করে। সর্বোচ্চ টিয়ার <strong class="text-white">Luxe</strong> <strong class="text-white">8% KAST Points + 4% MOVE Rewards = মোট 12%</strong> প্রদান করে।',
+      ar: 'تستخدم KAST نظام مكافآت متدرج. المستوى الأعلى <strong class="text-white">Luxe</strong> يوفر <strong class="text-white">8% KAST Points + 4% MOVE Rewards = 12% إجمالي</strong>.',
+      zh: 'KAST 采用分级奖励系统。最高等级 <strong class="text-white">Luxe</strong> 提供 <strong class="text-white">8% KAST Points + 4% MOVE Rewards = 总计 12%</strong>。',
+      ko: 'KAST는 티어별 리워드 시스템을 사용합니다. 최상위 <strong class="text-white">Luxe</strong> 티어는 <strong class="text-white">8% KAST Points + 4% MOVE Rewards = 총 12%</strong>를 제공합니다.',
+      ja: 'KASTはティア制の報酬システムを採用。最上位の<strong class="text-white">Luxe</strong>ティアで合計最大12%のキャッシュバック（KASTポイント8%＋MOVEリワード4%）。各ティアの合計：Standard 6%、Premium/Limited 9%、Luxe 12%。'
+    }
+  },
+  // Q11
+  {
+    q: {
+      en: "What is the name of KAST's stablecoin?",
+      pt: "Qual é o nome da stablecoin da KAST?",
+      es: "¿Cuál es el nombre de la stablecoin de KAST?",
+      fr: "Quel est le nom du stablecoin de KAST ?",
+      ru: "Как называется стейблкоин KAST?",
+      pcm: "Wetin be the name of KAST stablecoin?",
+      id: "Apa nama stablecoin KAST?",
+      vi: "Tên stablecoin của KAST là gì?",
+      hi: "KAST के स्टेबलकॉइन का नाम क्या है?",
+      bn: "KAST-এর স্টেবলকয়েনের নাম কী?",
+      ar: "ما اسم العملة المستقرة لـ KAST؟",
+      zh: "KAST 的稳定币叫什么名字？",
+      ko: "KAST의 스테이블코인 이름은 무엇인가요?",
+      ja: "KASTのステーブルコインの名前は？"
+    },
+    choices: ["USDKY", "USDKK", "USDK", "USDKA"],
+    correct: 0,
+    links: [{label: "KAST Stablecoin Announcement", url: "https://www.kast.xyz/blog/kast-strengthens-its-banking-alternative-platform-with-its-own-stablecoins"}, {label: "KAST post on X", url: "https://x.com/KASTxyz/status/1972004509028438347"}],
+    exp: {
+      en: 'KAST developed its own stablecoin "<strong class="text-white">KAST Dollar</strong>" in partnership with M^0. It comes in two versions: <strong class="text-white">USDKY</strong> (yield-bearing, treasury-backed for savings) and <strong class="text-white">USDK</strong> (optimized for payments), both launching on Solana.',
+      pt: 'A KAST desenvolveu sua própria stablecoin "<strong class="text-white">KAST Dollar</strong>" em parceria com M^0. Vem em duas versões: <strong class="text-white">USDKY</strong> (com rendimento, para poupança) e <strong class="text-white">USDK</strong> (para pagamentos).',
+      es: 'KAST desarrolló su propia stablecoin "<strong class="text-white">KAST Dollar</strong>" en asociación con M^0. Viene en dos versiones: <strong class="text-white">USDKY</strong> (con rendimiento, para ahorro) y <strong class="text-white">USDK</strong> (para pagos).',
+      fr: 'KAST a développé son propre stablecoin « <strong class="text-white">KAST Dollar</strong> » en partenariat avec M^0. Deux versions : <strong class="text-white">USDKY</strong> (avec rendement, pour l\'épargne) et <strong class="text-white">USDK</strong> (pour les paiements).',
+      ru: 'KAST разработал собственный стейблкоин «<strong class="text-white">KAST Dollar</strong>» в партнёрстве с M^0. Две версии: <strong class="text-white">USDKY</strong> (доходный, для сбережений) и <strong class="text-white">USDK</strong> (для платежей).',
+      pcm: 'KAST develop their own stablecoin "<strong class="text-white">KAST Dollar</strong>" with M^0 partnership. Two versions: <strong class="text-white">USDKY</strong> (yield-bearing, for savings) and <strong class="text-white">USDK</strong> (for payments).',
+      id: 'KAST mengembangkan stablecoin sendiri "<strong class="text-white">KAST Dollar</strong>" bermitra dengan M^0. Dua versi: <strong class="text-white">USDKY</strong> (menghasilkan imbal hasil, untuk tabungan) dan <strong class="text-white">USDK</strong> (untuk pembayaran).',
+      vi: 'KAST đã phát triển stablecoin riêng "<strong class="text-white">KAST Dollar</strong>" hợp tác với M^0. Hai phiên bản: <strong class="text-white">USDKY</strong> (sinh lợi nhuận, cho tiết kiệm) và <strong class="text-white">USDK</strong> (cho thanh toán).',
+      hi: 'KAST ने M^0 के साथ अपना स्टेबलकॉइन "<strong class="text-white">KAST Dollar</strong>" विकसित किया। दो संस्करण: <strong class="text-white">USDKY</strong> (यील्ड-बेयरिंग, बचत के लिए) और <strong class="text-white">USDK</strong> (भुगतान के लिए)।',
+      bn: 'KAST M^0-এর সাথে নিজস্ব স্টেবলকয়েন "<strong class="text-white">KAST Dollar</strong>" তৈরি করেছে। দুটি সংস্করণ: <strong class="text-white">USDKY</strong> (ইল্ড-বিয়ারিং, সঞ্চয়ের জন্য) এবং <strong class="text-white">USDK</strong> (পেমেন্টের জন্য)।',
+      ar: 'طورت KAST عملتها المستقرة الخاصة "<strong class="text-white">KAST Dollar</strong>" بالشراكة مع M^0. نسختين: <strong class="text-white">USDKY</strong> (مدرّة للعائد، للادخار) و<strong class="text-white">USDK</strong> (للمدفوعات).',
+      zh: 'KAST 与 M^0 合作开发了"<strong class="text-white">KAST Dollar</strong>"。分为两个版本：<strong class="text-white">USDKY</strong>（收益型，用于储蓄）和 <strong class="text-white">USDK</strong>（优化支付）。',
+      ko: 'KAST는 M^0과 파트너십으로 "<strong class="text-white">KAST Dollar</strong>"를 개발했습니다. <strong class="text-white">USDKY</strong>(수익형 저축용)와 <strong class="text-white">USDK</strong>(결제 최적화) 두 가지 버전입니다.',
+      ja: 'KASTはM^0との提携により独自ステーブルコイン「<strong class="text-white">KAST Dollar</strong>」を開発。貯蓄向けの「<strong class="text-white">USDKY</strong>」と決済向けの「<strong class="text-white">USDK</strong>」の2バージョンで提供され、Solana上でローンチされます。'
+    }
+  },
+  // Q12
+  {
+    q: {
+      en: "What is the FX fee for USD spending?",
+      pt: "Qual é a taxa de câmbio para gastos em USD?",
+      es: "¿Cuál es la comisión de cambio para gastos en USD?",
+      fr: "Quels sont les frais de change pour les dépenses en USD ?",
+      ru: "Какова комиссия за обмен валюты при расходах в USD?",
+      pcm: "Wetin be the FX fee for USD spending?",
+      id: "Berapa biaya FX untuk pengeluaran USD?",
+      vi: "Phí FX cho chi tiêu bằng USD là bao nhiêu?",
+      hi: "USD खर्च के लिए FX शुल्क क्या है?",
+      bn: "USD খরচের জন্য FX ফি কত?",
+      ar: "ما هي رسوم الصرف الأجنبي للإنفاق بالدولار؟",
+      zh: "美元消费的外汇费用是多少？",
+      ko: "USD 결제 시 FX 수수료는 얼마인가요?",
+      ja: "USD建ての支払いにかかるFX手数料は？"
+    },
+    choices: ["0%", "0.5%", "1%", "1.5%"],
+    correct: 0,
+    links: [{label: "KAST Fees & Conditions", url: "https://concierge.kast.xyz/hc/en-us/articles/9850062738703-What-Are-the-Fees-and-Conditions-for-KAST-Cards-and-Accounts"}],
+    exp: {
+      en: 'There is <strong class="text-white">no FX fee (0%)</strong> for USD purchases with a KAST card. Stablecoin deposits are also converted 1:1 at 0%, and Apple Pay/Google Pay transactions are 0%.',
+      pt: '<strong class="text-white">Não há taxa de câmbio (0%)</strong> para compras em USD com o cartão KAST. Depósitos em stablecoins também são convertidos 1:1 a 0%.',
+      es: '<strong class="text-white">No hay comisión de cambio (0%)</strong> para compras en USD con la tarjeta KAST. Los depósitos en stablecoins se convierten 1:1 al 0%.',
+      fr: 'Il n\'y a <strong class="text-white">aucun frais de change (0%)</strong> pour les achats en USD avec la carte KAST. Les dépôts en stablecoins sont convertis 1:1 à 0%.',
+      ru: 'При покупках в USD с картой KAST <strong class="text-white">комиссия за обмен валюты не взимается (0%)</strong>. Депозиты в стейблкоинах конвертируются 1:1 с комиссией 0%.',
+      pcm: '<strong class="text-white">No FX fee (0%)</strong> for USD purchases with KAST card. Stablecoin deposits dey also convert 1:1 at 0%.',
+      id: '<strong class="text-white">Tidak ada biaya FX (0%)</strong> untuk pembelian USD dengan kartu KAST. Deposit stablecoin juga dikonversi 1:1 dengan biaya 0%.',
+      vi: '<strong class="text-white">Không có phí FX (0%)</strong> cho các giao dịch mua bằng USD với thẻ KAST. Tiền gửi stablecoin cũng được chuyển đổi 1:1 với phí 0%.',
+      hi: 'KAST कार्ड से USD खरीदारी पर <strong class="text-white">कोई FX शुल्क नहीं (0%)</strong> है। स्टेबलकॉइन जमा भी 1:1 पर 0% में परिवर्तित होते हैं।',
+      bn: 'KAST কার্ডে USD কেনাকাটায় <strong class="text-white">কোনো FX ফি নেই (0%)</strong>। স্টেবলকয়েন ডিপোজিটও 1:1 এ 0% এ রূপান্তরিত হয়।',
+      ar: '<strong class="text-white">لا توجد رسوم صرف أجنبي (0%)</strong> لمشتريات الدولار ببطاقة KAST. تُحوَّل إيداعات العملات المستقرة 1:1 بنسبة 0%.',
+      zh: '使用 KAST 卡进行美元消费<strong class="text-white">无外汇费用（0%）</strong>。稳定币存款也以 1:1 零手续费转换。',
+      ko: 'KAST 카드로 USD 결제 시 <strong class="text-white">FX 수수료가 없습니다(0%)</strong>. 스테이블코인 입금도 1:1로 0% 전환됩니다.',
+      ja: 'KASTカードでのUSD建て購入には<strong class="text-white">FX手数料がかかりません（0%）</strong>。ステーブルコイン入金も1:1の変換で0%、Apple Pay/Google Payも0%です。'
+    }
+  },
+  // Q13
+  {
+    q: {
+      en: "What is the fee for non-USD spending?",
+      pt: "Qual é a taxa para gastos em moeda diferente de USD?",
+      es: "¿Cuál es la comisión para gastos en moneda distinta al USD?",
+      fr: "Quels sont les frais pour les dépenses en devises autres que l'USD ?",
+      ru: "Какова комиссия за расходы в валюте, отличной от USD?",
+      pcm: "Wetin be the fee for spending wey no be USD?",
+      id: "Berapa biaya untuk pengeluaran non-USD?",
+      vi: "Phí cho chi tiêu bằng tiền tệ ngoài USD là bao nhiêu?",
+      hi: "गैर-USD खर्च के लिए शुल्क क्या है?",
+      bn: "অ-USD খরচের জন্য ফি কত?",
+      ar: "ما هي الرسوم للإنفاق بغير الدولار؟",
+      zh: "非美元消费的费用是多少？",
+      ko: "비-USD 결제 수수료는 얼마인가요?",
+      ja: "非USD通貨での支払い手数料は？"
+    },
+    choices: ["0.5–1.75%", "0.75–1.25%", "1–2%", "2–4%"],
+    correct: 0,
+    links: [{label: "KAST Fees & Conditions", url: "https://concierge.kast.xyz/hc/en-us/articles/9850062738703-What-Are-the-Fees-and-Conditions-for-KAST-Cards-and-Accounts"}],
+    exp: {
+      en: 'Non-USD transactions incur an <strong class="text-white">FX fee of 0.5% to 1.75%</strong> depending on the currency. All fees are transparently displayed before transaction confirmation.',
+      pt: 'Transações em moeda diferente de USD incorrem em uma <strong class="text-white">taxa de câmbio de 0,5% a 1,75%</strong> dependendo da moeda. Todas as taxas são exibidas de forma transparente antes da confirmação.',
+      es: 'Las transacciones en moneda distinta al USD incurren en una <strong class="text-white">comisión de cambio del 0,5% al 1,75%</strong> según la moneda.',
+      fr: 'Les transactions en devises autres que l\'USD entraînent des <strong class="text-white">frais de change de 0,5% à 1,75%</strong> selon la devise.',
+      ru: 'Транзакции в валюте, отличной от USD, облагаются <strong class="text-white">комиссией от 0,5% до 1,75%</strong> в зависимости от валюты.',
+      pcm: 'Non-USD transactions get <strong class="text-white">FX fee of 0.5% to 1.75%</strong> depending on the currency. All fees dey show clearly before you confirm.',
+      id: 'Transaksi non-USD dikenakan <strong class="text-white">biaya FX 0,5% hingga 1,75%</strong> tergantung mata uang.',
+      vi: 'Các giao dịch không phải USD phải chịu <strong class="text-white">phí FX từ 0,5% đến 1,75%</strong> tùy thuộc vào loại tiền tệ.',
+      hi: 'गैर-USD लेनदेन पर मुद्रा के अनुसार <strong class="text-white">0.5% से 1.75% का FX शुल्क</strong> लगता है।',
+      bn: 'অ-USD লেনদেনে মুদ্রার উপর নির্ভর করে <strong class="text-white">0.5% থেকে 1.75% FX ফি</strong> প্রযোজ্য।',
+      ar: 'تترتب على المعاملات بغير الدولار <strong class="text-white">رسوم صرف من 0.5% إلى 1.75%</strong> حسب العملة.',
+      zh: '非美元交易收取<strong class="text-white">0.5%至1.75%的外汇费用</strong>，具体取决于币种。',
+      ko: '비-USD 거래에는 통화에 따라 <strong class="text-white">0.5%~1.75%의 FX 수수료</strong>가 부과됩니다.',
+      ja: '非USD通貨での取引には、通貨に応じて<strong class="text-white">0.5%〜1.75%の為替手数料</strong>が適用されます。この手数料は取引確認前に明示的に表示されます。'
+    }
+  },
+  // Q14
+  {
+    q: {
+      en: "You can earn KAST Points by staking Solana.",
+      pt: "Você pode ganhar KAST Points fazendo staking de Solana.",
+      es: "Puedes ganar KAST Points haciendo staking de Solana.",
+      fr: "Vous pouvez gagner des KAST Points en stakant Solana.",
+      ru: "Вы можете зарабатывать KAST Points, стейкая Solana.",
+      pcm: "You fit earn KAST Points by staking Solana.",
+      id: "Anda bisa mendapatkan KAST Points dengan staking Solana.",
+      vi: "Bạn có thể kiếm KAST Points bằng cách staking Solana.",
+      hi: "आप Solana स्टेकिंग करके KAST Points कमा सकते हैं।",
+      bn: "আপনি Solana স্টেকিং করে KAST Points অর্জন করতে পারেন।",
+      ar: "يمكنك كسب KAST Points من خلال تخزين Solana.",
+      zh: "你可以通过质押 Solana 赚取 KAST Points。",
+      ko: "Solana를 스테이킹하여 KAST Points를 획득할 수 있습니다.",
+      ja: "SolanaのステーキングでKASTポイントを獲得できる？"
+    },
+    choices: ["True", "False"],
+    correct: 0,
+    links: [{label: "KAST × Solana", url: "https://www.kast.xyz/solana"}],
+    exp: {
+      en: 'By staking SOL through the <strong class="text-white">KAST Validator</strong>, you earn KAST Points. Multipliers vary by tier: Standard 0.25x (~1.75% APY), Solana Illuma 0.5x (~3.5% APY), Solana Gold & Solid 1x (~7% APY). Points are credited every epoch (~2 days).',
+      pt: 'Ao fazer staking de SOL através do <strong class="text-white">KAST Validator</strong>, você ganha KAST Points. Multiplicadores por tier: Standard 0,25x, Solana Illuma 0,5x, Solana Gold & Solid 1x. Pontos creditados a cada epoch (~2 dias).',
+      es: 'Al hacer staking de SOL a través del <strong class="text-white">KAST Validator</strong>, ganas KAST Points. Multiplicadores por nivel: Standard 0,25x, Solana Illuma 0,5x, Solana Gold & Solid 1x.',
+      fr: 'En stakant du SOL via le <strong class="text-white">KAST Validator</strong>, vous gagnez des KAST Points. Multiplicateurs par niveau : Standard 0,25x, Solana Illuma 0,5x, Solana Gold & Solid 1x.',
+      ru: 'Стейкая SOL через <strong class="text-white">KAST Validator</strong>, вы зарабатываете KAST Points. Множители: Standard 0,25x, Solana Illuma 0,5x, Solana Gold & Solid 1x.',
+      pcm: 'When you stake SOL through the <strong class="text-white">KAST Validator</strong>, you go earn KAST Points. Multipliers: Standard 0.25x, Solana Illuma 0.5x, Solana Gold & Solid 1x.',
+      id: 'Dengan staking SOL melalui <strong class="text-white">KAST Validator</strong>, Anda mendapatkan KAST Points. Pengali per tier: Standard 0,25x, Solana Illuma 0,5x, Solana Gold & Solid 1x.',
+      vi: 'Bằng cách staking SOL thông qua <strong class="text-white">KAST Validator</strong>, bạn kiếm được KAST Points. Hệ số nhân: Standard 0.25x, Solana Illuma 0.5x, Solana Gold & Solid 1x.',
+      hi: '<strong class="text-white">KAST Validator</strong> के माध्यम से SOL स्टेकिंग करके आप KAST Points कमाते हैं। टियर अनुसार गुणक: Standard 0.25x, Solana Illuma 0.5x, Solana Gold & Solid 1x.',
+      bn: '<strong class="text-white">KAST Validator</strong>-এর মাধ্যমে SOL স্টেকিং করে আপনি KAST Points অর্জন করতে পারেন। টিয়ার অনুযায়ী মাল্টিপ্লায়ার: Standard 0.25x, Solana Illuma 0.5x, Solana Gold & Solid 1x.',
+      ar: 'من خلال تخزين SOL عبر <strong class="text-white">KAST Validator</strong>، تكسب KAST Points. المضاعفات: Standard 0.25x، Solana Illuma 0.5x، Solana Gold & Solid 1x.',
+      zh: '通过 <strong class="text-white">KAST Validator</strong> 质押 SOL，可赚取 KAST Points。倍率：Standard 0.25x、Solana Illuma 0.5x、Solana Gold & Solid 1x。',
+      ko: '<strong class="text-white">KAST Validator</strong>를 통해 SOL을 스테이킹하면 KAST Points를 획득할 수 있습니다. 티어별 배율: Standard 0.25x, Solana Illuma 0.5x, Solana Gold & Solid 1x.',
+      ja: '<strong class="text-white">KAST Validator</strong>を通じてSOLをステーキングすることで、KASTポイントを獲得できます。ティアに応じて倍率が異なり、Standard 0.25x（約1.75% APY）、Solana Illuma 0.5x（約3.5% APY）、Solana Gold & Solid 1x（約7% APY）です。'
+    }
+  },
+  // Q15
+  {
+    q: {
+      en: "Who is KAST's COO (Chief Operating Officer)?",
+      pt: "Quem é o COO (Diretor de Operações) da KAST?",
+      es: "¿Quién es el COO (Director de Operaciones) de KAST?",
+      fr: "Qui est le COO (Directeur des Opérations) de KAST ?",
+      ru: "Кто является COO (операционным директором) KAST?",
+      pcm: "Who be KAST COO (Chief Operating Officer)?",
+      id: "Siapa COO (Chief Operating Officer) KAST?",
+      vi: "Ai là COO (Giám đốc Điều hành) của KAST?",
+      hi: "KAST के COO (मुख्य परिचालन अधिकारी) कौन हैं?",
+      bn: "KAST-এর COO (প্রধান পরিচালন কর্মকর্তা) কে?",
+      ar: "من هو مدير العمليات (COO) في KAST؟",
+      zh: "KAST 的 COO（首席运营官）是谁？",
+      ko: "KAST의 COO(최고운영책임자)는 누구인가요?",
+      ja: "KASTのCOO（最高執行責任者）は誰？"
+    },
+    choices: ["Brad Jaffe", "Clement Berger", "Sameera Nilupul", "Sam Kerrins"],
+    correct: 3,
+    links: [{label: "Meet KAST COO Sam Kerrins", url: "https://www.kast.xyz/blog/meet-kast-coo-sam-kerrins"}],
+    exp: {
+      en: 'Sam Kerrins is KAST\'s COO, overseeing <strong class="text-white">customer support, treasury management, card operations, disputes & chargebacks, and data reconciliation</strong>. Other roles: Brad Jaffe = CCO, Clement Berger = CLO, Sameera Nilupul = CTO.',
+      pt: 'Sam Kerrins é o COO da KAST, supervisionando <strong class="text-white">suporte ao cliente, gestão de tesouraria, operações de cartão, disputas e estornos</strong>. Demais: Brad Jaffe = CCO, Clement Berger = CLO, Sameera Nilupul = CTO.',
+      es: 'Sam Kerrins es el COO de KAST, supervisando <strong class="text-white">soporte al cliente, gestión de tesorería, operaciones de tarjetas, disputas y contracargos</strong>. Otros: Brad Jaffe = CCO, Clement Berger = CLO, Sameera Nilupul = CTO.',
+      fr: 'Sam Kerrins est le COO de KAST, supervisant <strong class="text-white">le support client, la gestion de trésorerie, les opérations cartes, les litiges et rétrofacturations</strong>. Autres : Brad Jaffe = CCO, Clement Berger = CLO, Sameera Nilupul = CTO.',
+      ru: 'Сэм Керринс — COO KAST, отвечающий за <strong class="text-white">поддержку клиентов, управление казначейством, карточные операции, споры и возвратные платежи</strong>. Остальные: Brad Jaffe = CCO, Clement Berger = CLO, Sameera Nilupul = CTO.',
+      pcm: 'Sam Kerrins na KAST COO, e dey oversee <strong class="text-white">customer support, treasury management, card operations, disputes & chargebacks</strong>. Others: Brad Jaffe = CCO, Clement Berger = CLO, Sameera Nilupul = CTO.',
+      id: 'Sam Kerrins adalah COO KAST, mengawasi <strong class="text-white">dukungan pelanggan, manajemen perbendaharaan, operasi kartu, sengketa & chargeback</strong>. Lainnya: Brad Jaffe = CCO, Clement Berger = CLO, Sameera Nilupul = CTO.',
+      vi: 'Sam Kerrins là COO của KAST, giám sát <strong class="text-white">hỗ trợ khách hàng, quản lý ngân quỹ, vận hành thẻ, tranh chấp và hoàn tiền</strong>. Vai trò khác: Brad Jaffe = CCO, Clement Berger = CLO, Sameera Nilupul = CTO.',
+      hi: 'सैम केरिन्स KAST के COO हैं, जो <strong class="text-white">ग्राहक सहायता, ट्रेजरी प्रबंधन, कार्ड संचालन, विवाद और चार्जबैक</strong> की देखरेख करते हैं। अन्य: Brad Jaffe = CCO, Clement Berger = CLO, Sameera Nilupul = CTO।',
+      bn: 'স্যাম কেরিন্স KAST-এর COO, <strong class="text-white">গ্রাহক সহায়তা, ট্রেজারি ম্যানেজমেন্ট, কার্ড অপারেশন, বিরোধ ও চার্জব্যাক</strong> তত্ত্বাবধান করেন। অন্যরা: Brad Jaffe = CCO, Clement Berger = CLO, Sameera Nilupul = CTO।',
+      ar: 'سام كيرينز هو مدير العمليات في KAST، يشرف على <strong class="text-white">دعم العملاء وإدارة الخزينة وعمليات البطاقات والنزاعات وعمليات رد المبالغ</strong>. الآخرون: Brad Jaffe = CCO، Clement Berger = CLO، Sameera Nilupul = CTO.',
+      zh: 'Sam Kerrins 是 KAST 的 COO，负责<strong class="text-white">客户支持、资金管理、卡片运营、争议与退款</strong>。其他：Brad Jaffe = CCO、Clement Berger = CLO、Sameera Nilupul = CTO。',
+      ko: 'Sam Kerrins는 KAST의 COO로서 <strong class="text-white">고객 지원, 자금 관리, 카드 운영, 분쟁 및 차지백</strong>을 총괄합니다. 다른 역할: Brad Jaffe = CCO, Clement Berger = CLO, Sameera Nilupul = CTO.',
+      ja: 'サム・ケリンズはKASTのCOOとして、<strong class="text-white">カスタマーサポート、トレジャリー管理、カードオペレーション、紛争・チャージバック、データ照合</strong>を統括しています。他の選択肢：Brad Jaffe = CCO、Clement Berger = CLO、Sameera Nilupul = CTO。'
+    }
+  }
+];
+
+// ── App State ──
+let currentLang = "en";
+
+// ── Render flag nav ──
+function renderFlags() {
+  const nav = document.getElementById("flag-nav");
+  nav.innerHTML = LANGS.map(l =>
+    `<button class="flag-btn flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-kast-border bg-kast-card hover:bg-kast-border ${l.code === currentLang ? 'active' : ''}" data-lang="${l.code}" title="${l.label}">` +
+    `<span class="fi fi-${l.flag}" style="font-size:1.25rem;line-height:1;"></span>` +
+    `<span class="text-xs hidden sm:inline">${l.label}</span>` +
+    `</button>`
+  ).join("");
+
+  nav.querySelectorAll("button").forEach(btn => {
+    btn.addEventListener("click", () => {
+      currentLang = btn.dataset.lang;
+      renderFlags();
+      renderQuestions();
+    });
+  });
+}
+
+// ── Render questions ──
+function renderQuestions() {
+  const container = document.getElementById("questions-container");
+  // Keep category labels (first child)
+  const catLabels = container.querySelector(".flex.flex-wrap.gap-2");
+  container.innerHTML = "";
+  if (catLabels) container.appendChild(catLabels);
+
+  QUIZ.forEach((item, idx) => {
+    const num = idx + 1;
+    const [, colorClass] = catColor(num);
+    const qText = item.q[currentLang] || item.q.en;
+    const expText = item.exp[currentLang] || item.exp.en;
+
+    const article = document.createElement("article");
+    article.className = "bg-kast-card rounded-xl border border-kast-border overflow-hidden";
+    article.innerHTML =
+      `<div class="p-6">` +
+        `<div class="flex items-start gap-3 mb-4">` +
+          `<span class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg ${colorClass} font-bold text-sm">Q${num}</span>` +
+          `<h2 class="text-lg font-semibold text-white">${escapeHtml(qText)}</h2>` +
+        `</div>` +
+        `<div class="grid gap-2 mb-4">` +
+          item.choices.map((c, ci) =>
+            ci === item.correct
+              ? `<div class="px-4 py-2.5 rounded-lg choice-correct border text-sm text-emerald-300 font-medium">${ci + 1}. ${escapeHtml(c)} &#10003;</div>`
+              : `<div class="px-4 py-2.5 rounded-lg border border-kast-border text-sm text-kast-muted">${ci + 1}. ${escapeHtml(c)}</div>`
+          ).join("") +
+        `</div>` +
+        `<details>` +
+          `<summary class="flex items-center gap-2 text-sm text-kast-accent font-medium">` +
+            `<svg class="chevron w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>` +
+            `${currentLang === 'ja' ? '解説を見る' : currentLang === 'zh' ? '查看解析' : currentLang === 'ko' ? '해설 보기' : 'Show Explanation'}` +
+          `</summary>` +
+          `<div class="explanation-box mt-3 p-4 rounded-lg border border-kast-accent/20 text-sm leading-relaxed text-gray-300">${expText}` +
+            (item.links && item.links.length ? `<div class="mt-3 flex flex-wrap gap-2">${item.links.map(l => `<a href="${l.url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-kast-accent/10 border border-kast-accent/30 text-kast-accent text-xs hover:bg-kast-accent/20 transition-colors"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>${escapeHtml(l.label)}</a>`).join("")}</div>` : '') +
+          `</div>` +
+        `</details>` +
+      `</div>`;
+    container.appendChild(article);
+  });
+}
+
+function escapeHtml(str) {
+  const d = document.createElement("div");
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+// ── QR Codes ──
+function generateQR(elementId, url) {
+  const qr = qrcode(0, 'M');
+  qr.addData(url);
+  qr.make();
+  const el = document.getElementById(elementId);
+  if (el) {
+    el.innerHTML = qr.createImgTag(3, 4);
+    const img = el.querySelector('img');
+    if (img) { img.style.width = '80px'; img.style.height = '80px'; img.style.display = 'block'; }
+  }
+}
+
+// ── Init ──
+renderFlags();
+renderQuestions();
+generateQR('qr-kast', 'https://go.kast.xyz/VqVO/SAPPORO');
+generateQR('qr-discord', 'https://discord.gg/sFGewYk9YQ');
+</script>
+</body>
+</html>

@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KAST Discord Quiz App
+
+KAST Discord コミュニティ向けのクイズアプリです。Discord アカウントでログインし、ランダムに出題される 5 問のクイズに挑戦できます。
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Styling:** Tailwind CSS v4
+- **Auth:** NextAuth.js v5 (Discord Provider)
+- **Database:** Neon Postgres (Prisma ORM)
+- **Deployment:** Vercel
+
+## Features
+
+- Discord OAuth ログイン
+- 70 問のクイズデータベースからランダム 5 問を出題
+- 解答後にスコア・正解・解説を表示
+- 過去の成績履歴を閲覧可能
+- ダークモード専用 UI（KAST ブランドカラー）
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Set up environment variables
+
+```bash
+cp .env.example .env.local
+```
+
+`.env.local` に以下を設定:
+
+- `DATABASE_URL` / `DIRECT_URL` — Neon or Vercel Postgres の接続文字列
+- `AUTH_SECRET` — `npx auth secret` で生成
+- `AUTH_DISCORD_ID` / `AUTH_DISCORD_SECRET` — [Discord Developer Portal](https://discord.com/developers/applications) で作成
+- Discord OAuth Redirect URI: `http://localhost:3000/api/auth/callback/discord`
+
+### 3. Set up database
+
+```bash
+npx prisma db push
+npx prisma db seed
+```
+
+### 4. Run dev server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+http://localhost:3000 でアクセス。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deployment (Vercel)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. GitHub リポジトリを Vercel にインポート
+2. Environment Variables に `.env.local` と同じ値を設定（`NEXTAUTH_URL` は本番 URL に変更）
+3. Discord OAuth に本番の Redirect URI を追加: `https://your-domain.vercel.app/api/auth/callback/discord`
+4. Build Command: `prisma generate && next build`（package.json で設定済み）
 
-## Learn More
+## Quiz Data
 
-To learn more about Next.js, take a look at the following resources:
+クイズデータは `prisma/seed.ts` に 70 問分定義されています。カテゴリ:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Core Products / Cards & Products / Stablecoins & Blockchain
+- Leadership & Team / Fees & Transfers / Security & Compliance
+- DeFi & Yield / Community & Campaigns / Geography & Use Cases
+- Technical Knowledge / Staking & Rewards / Market Knowledge
