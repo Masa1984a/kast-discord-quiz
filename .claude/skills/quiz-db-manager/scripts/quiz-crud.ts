@@ -79,6 +79,11 @@ async function get(id: number) {
   });
   console.log(`Correct:      ${labels[q.correctIndex]} (index ${q.correctIndex})`);
   console.log(`Explanation:  ${q.explanation}`);
+  const links = q.relatedLinks as {label: string, url: string}[] | undefined;
+  if (links && links.length > 0) {
+    console.log(`Related Links:`);
+    links.forEach((l) => console.log(`  - ${l.label}: ${l.url}`));
+  }
 
   // Show reference count
   const refCount = await prisma.attemptDetail.count({ where: { questionId: id } });
@@ -110,6 +115,16 @@ async function create(flags: Record<string, string>) {
     process.exit(1);
   }
 
+  let relatedLinks: {label: string, url: string}[] = [];
+  if (flags.links) {
+    try {
+      relatedLinks = JSON.parse(flags.links);
+    } catch {
+      console.error("Invalid JSON for --links. Use format: '[{\"label\":\"...\",\"url\":\"...\"}]'");
+      process.exit(1);
+    }
+  }
+
   const q = await prisma.question.create({
     data: {
       category: flags.category,
@@ -117,6 +132,7 @@ async function create(flags: Record<string, string>) {
       choices,
       correctIndex,
       explanation: flags.explanation,
+      relatedLinks,
     },
   });
 
@@ -150,6 +166,14 @@ async function update(id: number, flags: Record<string, string>) {
     data.correctIndex = ci;
   }
   if (flags.explanation) data.explanation = flags.explanation;
+  if (flags.links) {
+    try {
+      data.relatedLinks = JSON.parse(flags.links);
+    } catch {
+      console.error("Invalid JSON for --links.");
+      process.exit(1);
+    }
+  }
 
   if (Object.keys(data).length === 0) {
     console.log("No fields to update. Specify at least one flag.");
