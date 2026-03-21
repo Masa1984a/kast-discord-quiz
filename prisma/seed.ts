@@ -153,7 +153,7 @@ const questions = [
     choices: ["Free", "$20", "$40", "$60"],
     correctIndex: 2,
     explanation: "The Standard physical card itself is free — users only pay a $40 shipping fee. Previously, the card had an additional issuance cost, but KAST removed it to make physical cards more accessible globally.",
-    relatedLinks: [{label: "Standard Physical KAST Cards Free", url: "https://www.kast.xyz/blog/standard-physical-kast-cards-free"}]
+    relatedLinks: [{label: "Standard Physical KAST Cards Free", url: "https://www.kast.xyz/blog/all-standard-physical-kast-cards-are-now-free---heres-how-to-get-yours"}]
   },
   {
     id: 17,
@@ -171,7 +171,7 @@ const questions = [
     choices: ["Bored Ape Yacht Club", "Azuki", "Pudgy Penguins", "CryptoPunks"],
     correctIndex: 2,
     explanation: "KAST launched a co-branded Pengu Card in partnership with Pudgy Penguins. The card is available in Standard, Premium, and Luxe tiers. When the waitlist opened, it hit 100,000 sign-ups on day one.",
-    relatedLinks: [{label: "Pengu Card Waitlist Open", url: "https://www.kast.xyz/blog/pengu-card-waitlist-open"}]
+    relatedLinks: [{label: "Pengu Card Waitlist Open", url: "https://www.kast.xyz/blog/pengu-card-waitlist-is-now-open"}]
   },
   {
     id: 19,
@@ -245,7 +245,7 @@ const questions = [
     choices: ["$30", "$15", "$5", "$0 (waived)"],
     correctIndex: 3,
     explanation: "KAST ran a promotional campaign through March 2026 where the $30 SWIFT transfer fee is fully waived for transfers above $5,000.",
-    relatedLinks: [{label: "Fee Refund on Transfers Above $5,000", url: "https://www.kast.xyz/blog/fee-refund-on-transfers-above-5000"}]
+    relatedLinks: [{label: "Fee Refund on Transfers Above $5,000", url: "https://www.kast.xyz/blog/fee-refund-on-transfers-above-5-000"}]
   },
   {
     id: 27,
@@ -254,7 +254,7 @@ const questions = [
     choices: ["0% (zero fee)", "0.5%", "1%", "$2 flat fee"],
     correctIndex: 0,
     explanation: "KAST offers zero-fee SPEI transfers in Mexican Pesos.",
-    relatedLinks: [{label: "Send & Receive MXN Zero Fee SPEI", url: "https://www.kast.xyz/blog/send-receive-mxn-zero-fee-spei-kast"}]
+    relatedLinks: [{label: "Send & Receive MXN Zero Fee SPEI", url: "https://www.kast.xyz/blog/you-can-now-send-and-receive-mxn-with-zero-fee-spei-on-kast"}]
   },
   {
     id: 28,
@@ -291,7 +291,7 @@ const questions = [
     choices: ["Sam Kerrins", "Clement Berger", "Brad Jaffe", "Oriana Tessari"],
     correctIndex: 2,
     explanation: "Brad Jaffe is KAST's CCO, bringing experience from his previous role at Binance where he spent over 3 years.",
-    relatedLinks: [{label: "KAST Welcomes Brad Jaffe as CCO", url: "https://www.kast.xyz/blog/kast-welcomes-brad-jaffe-cco"}]
+    relatedLinks: [{label: "KAST Welcomes Brad Jaffe as CCO", url: "https://www.kast.xyz/blog/kast-welcomes-brad-jaffe-as-chief-communications-officer"}]
   },
   {
     id: 32,
@@ -429,7 +429,7 @@ const questions = [
     choices: ["3,000+", "5,000+", "7,000+", "10,000+"],
     correctIndex: 2,
     explanation: "As of March 6, 2026, the KAST Discord community had grown to over 7,000 members.",
-    relatedLinks: [{label: "7,000 People on KAST Discord", url: "https://www.kast.xyz/blog/7000-people-kast-discord"}]
+    relatedLinks: [{label: "7,000 People on KAST Discord", url: "https://www.kast.xyz/blog/7-000-people-are-already-part-of-the-kast-discord-are-you"}]
   },
   {
     id: 47,
@@ -438,7 +438,7 @@ const questions = [
     choices: ["$500 signup bonus + 2 free cards", "$1,000 signup bonus + 5 free cards", "$2,000 signup bonus + 10 free premium cards + 5% cashback", "$5,000 signup bonus + unlimited cards"],
     correctIndex: 2,
     explanation: "KAST offers Y Combinator startups a $2,000 signup bonus, 10 free premium cards for the team, and 5% cashback on spending.",
-    relatedLinks: [{label: "YC Startups Exclusive Promo", url: "https://www.kast.xyz/blog/yc-startups-exclusive-promo-kast"}]
+    relatedLinks: [{label: "YC Startups Exclusive Promo", url: "https://www.kast.xyz/blog/y-combinator-yc-startups-heres-an-exclusive-promo-from-kast"}]
   },
   {
     id: 48,
@@ -447,7 +447,7 @@ const questions = [
     choices: ["Tagging posts on social media", "Sending crypto instantly to other KAST users worldwide", "Tracking card shipments", "Earning reward multipliers"],
     correctIndex: 1,
     explanation: "A KAST Tag is a unique username that allows users to send crypto instantly to other KAST users worldwide without needing a wallet address.",
-    relatedLinks: [{label: "Secure Your KAST Tag", url: "https://www.kast.xyz/blog/secure-your-kast-tag"}]
+    relatedLinks: [{label: "Secure Your KAST Tag", url: "https://www.kast.xyz/blog/secure-your-kast-tag-before-your-name-is-gone"}]
   },
   {
     id: 49,
@@ -456,7 +456,7 @@ const questions = [
     choices: ["10+", "25+", "50+", "100+"],
     correctIndex: 2,
     explanation: "KAST attended over 50 industry events in 2025, its first full year of operation.",
-    relatedLinks: [{label: "KAST 2025: The Year We Went Global", url: "https://www.kast.xyz/blog/kast-2025-year-went-global"}]
+    relatedLinks: [{label: "KAST 2025: The Year We Went Global", url: "https://www.kast.xyz/blog/kast-2025-the-year-you-went-global"}]
   },
   {
     id: 50,
@@ -465,7 +465,7 @@ const questions = [
     choices: ["3 (English, Spanish, Portuguese)", "5 (English, Spanish, Portuguese, French, Arabic)", "The app added Chinese, Turkish, and Arabic", "15 languages"],
     correctIndex: 2,
     explanation: "In February 2026, KAST expanded its app language support by adding Chinese, Turkish, and Arabic.",
-    relatedLinks: [{label: "Use KAST in Chinese, Turkish, Arabic", url: "https://www.kast.xyz/blog/use-kast-chinese-turkish-arabic"}]
+    relatedLinks: [{label: "Use KAST in Chinese, Turkish, Arabic", url: "https://www.kast.xyz/blog/use-kast-in-chinese-turkish-and-arabic"}]
   },
   // ── Mock QUIZ — Geography & Use Cases (Q51–Q55) ──
   {
@@ -484,7 +484,7 @@ const questions = [
     choices: ["PIX", "SPEI", "UPI", "SWIFT"],
     correctIndex: 1,
     explanation: "KAST supports SPEI (Sistema de Pagos Electrónicos Interbancarios) for Mexican Peso transfers at zero fees.",
-    relatedLinks: [{label: "Send & Receive MXN Zero Fee SPEI", url: "https://www.kast.xyz/blog/send-receive-mxn-zero-fee-spei-kast"}]
+    relatedLinks: [{label: "Send & Receive MXN Zero Fee SPEI", url: "https://www.kast.xyz/blog/you-can-now-send-and-receive-mxn-with-zero-fee-spei-on-kast"}]
   },
   {
     id: 53,
@@ -576,7 +576,7 @@ const questions = [
     choices: ["10%", "20%", "30%", "50%"],
     correctIndex: 2,
     explanation: "KAST's referral program offers a 30% commission at Level 1 and 6% commission at Level 2.",
-    relatedLinks: [{label: "KAST Referral Leaderboard", url: "https://www.kast.xyz/blog/kast-referral-leaderboard-update"}]
+    relatedLinks: [{label: "KAST Referral Leaderboard", url: "https://www.kast.xyz/blog/kast-referral-leaderboard-update-whats-changed-2"}]
   },
   {
     id: 63,
@@ -603,7 +603,7 @@ const questions = [
     choices: ["Unlimited", "1", "2", "5"],
     correctIndex: 2,
     explanation: "Users can change their KAST Tag a maximum of 2 times.",
-    relatedLinks: [{label: "Secure Your KAST Tag", url: "https://www.kast.xyz/blog/secure-your-kast-tag"}]
+    relatedLinks: [{label: "Secure Your KAST Tag", url: "https://www.kast.xyz/blog/secure-your-kast-tag-before-your-name-is-gone"}]
   },
   // ── Mock QUIZ — Market Knowledge (Q66–Q70) ──
   {
