@@ -511,7 +511,8 @@ const questions = [
     choices: ["Only food delivery", "Wolt and Uber Eats orders", "Only in-store purchases", "Only cryptocurrency purchases"],
     correctIndex: 1,
     explanation: "KAST cards can be used with food delivery platforms like Wolt and Uber Eats, and everyday spending earns cashback.",
-    relatedLinks: [{label: "Wolt & Uber Eats with Crypto", url: "https://academy.kast.xyz/en-us/articles/wolt-uber-eats-crypto"}]
+    relatedLinks: [{label: "Wolt & Uber Eats with Crypto", url: "https://academy.kast.xyz/en-us/articles/wolt-uber-eats-crypto"}],
+    retired: true
   },
   // ── Mock QUIZ — Technical Knowledge (Q56–Q60) ──
   {
@@ -650,6 +651,107 @@ const questions = [
     correctIndex: 2,
     explanation: "KAST supports SWIFT transfers to 125+ countries globally.",
     relatedLinks: [{label: "KAST Fees Explained", url: "https://academy.kast.xyz/en-us/articles/kast-fees-explained"}]
+  },
+  // ── Support & Concierge (Q71–Q75) ──
+  {
+    id: 71,
+    category: "Support & Concierge",
+    questionText: "How can you contact KAST Concierge via WhatsApp?",
+    choices: ["+1 555-123-4567", "+44 7888 871185", "+81 90-1234-5678", "+65 9123 4567"],
+    correctIndex: 1,
+    explanation: "KAST's customer support is branded as Concierge. You can contact them directly via WhatsApp at +44 7888 871185 for fast assistance on any issue (card blocks, account questions, etc.).",
+    relatedLinks: [{label: "Ana on X", url: "https://x.com/Ana_KastCard/status/1914852761231090010"}]
+  },
+  {
+    id: 72,
+    category: "Support & Concierge",
+    questionText: "How can you contact KAST Concierge via email?",
+    choices: ["support@kast.xyz", "hello@kast.xyz", "support@kastcard.com", "concierge@kast.xyz"],
+    correctIndex: 2,
+    explanation: "KAST's customer support is branded as Concierge. The official email address is support@kastcard.com.",
+    relatedLinks: [{label: "Ana on X", url: "https://x.com/Ana_KastCard/status/1914852761231090010"}]
+  },
+  {
+    id: 73,
+    category: "Support & Concierge",
+    questionText: "When will I get a reply from KAST Concierge?",
+    choices: ["Within 1 hour", "Typically within 15 minutes", "Within 24 hours", "Within 48 hours"],
+    correctIndex: 1,
+    explanation: "KAST Concierge typically responds within 15 minutes. However, response times may vary depending on the complexity of the question, the communication channel used, and current inquiry volume (for example, more complex or regulatory/compliance-related issues may take additional time to investigate and resolve).",
+    relatedLinks: [{label: "How Can I Contact KAST Concierge", url: "https://concierge.kast.xyz/hc/en-us/articles/9058046289807-How-Can-I-Contact-KAST-Concierge"}]
+  },
+  {
+    id: 74,
+    category: "Support & Concierge",
+    questionText: "Is KAST Concierge available 24/7?",
+    choices: ["True", "False"],
+    correctIndex: 0,
+    explanation: "KAST Concierge is available 24/7 to provide continuous support across all communication channels.",
+    relatedLinks: [{label: "How Can I Contact KAST Concierge", url: "https://concierge.kast.xyz/hc/en-us/articles/9058046289807-How-Can-I-Contact-KAST-Concierge"}]
+  },
+  {
+    id: 75,
+    category: "Support & Concierge",
+    questionText: "If your KAST card is blocked or you have a technical issue, should you ask for help in the Discord community?",
+    choices: ["True", "False"],
+    correctIndex: 1,
+    explanation: "False. Technical questions or card issues (such as being blocked) should be directed to Concierge (official support). Discord is for the user community only.",
+    relatedLinks: [{label: "How Can I Contact KAST Concierge", url: "https://concierge.kast.xyz/hc/en-us/articles/9058046289807-How-Can-I-Contact-KAST-Concierge"}]
+  },
+  // ── Points & Tokenomics (Q76–Q81) ──
+  {
+    id: 76,
+    category: "Points & Tokenomics",
+    questionText: "At TGE, what conversion options does KAST offer for your reward points?",
+    choices: ["Convert 100% of points immediately with no restrictions", "Convert 50% of points immediately (or 25% immediately with the remainder unlocking monthly over 24 months)", "Convert all points after a 12-month lock-up period", "Points cannot be converted at TGE and must be held indefinitely"],
+    correctIndex: 1,
+    explanation: "Reminder: at TGE you can convert 50% of points immediately or 25% immediately and the remainder unlock over 24 months. (Official options: 1. Convert points to tokens immediately but forego 50% of points, or 2. Convert 25% immediately and the rest of the points convert monthly over 24 months). KAST gives preference to long-term holders.",
+    relatedLinks: [{label: "KAST Airdrop Terms", url: "https://www.kast.xyz/legal/airdrop"}]
+  },
+  {
+    id: 77,
+    category: "Points & Tokenomics",
+    questionText: "KAST states they must have ALL three factors strong at TGE: protocol fees, tokenomics, and what else?",
+    choices: ["High initial FDV and marketing", "Short-term token emissions", "Community", "Large VC funding rounds"],
+    correctIndex: 2,
+    explanation: "We must have ALL three factors strong at TGE - community, protocol fees, and tokenomics. KAST is deliberately waiting until they have a strong genuine community (along with solid protocol fees and tokenomics) before launching the TGE. They want to create a token loved by the community for the next decade+ (like BTC, ETH, SOL).",
+    relatedLinks: [{label: "KAST Airdrop Terms", url: "https://www.kast.xyz/legal/airdrop"}]
+  },
+  {
+    id: 78,
+    category: "Points & Tokenomics",
+    questionText: "What is the notional value of one KAST Point during Season 5?",
+    choices: ["$0.05", "$0.08", "$0.10", "$0.20"],
+    correctIndex: 2,
+    explanation: "Each reward point is currently pegged to a notional value of $0.10. KAST expects to keep increasing this value in line with third-party and investor valuations.",
+    relatedLinks: [{label: "KAST Airdrop Terms", url: "https://www.kast.xyz/legal/airdrop"}]
+  },
+  {
+    id: 79,
+    category: "Points & Tokenomics",
+    questionText: "What is the monthly spending cap for earning the additional 4% MOVE token rewards?",
+    choices: ["$1,000", "$2,000", "$5,000", "No cap"],
+    correctIndex: 1,
+    explanation: "For a limited time, earn 4% cashback in MOVE tokens on top of regular KAST Points. Eligible transactions are capped at $2,000 spent per month (cap resets on the 1st of each month). KAST may change or end this bonus at any time.",
+    relatedLinks: [{label: "KAST Airdrop Terms", url: "https://www.kast.xyz/legal/airdrop"}]
+  },
+  {
+    id: 80,
+    category: "Points & Tokenomics",
+    questionText: "When does KAST expect the Token Generation Event (TGE) for converting points to tokens?",
+    choices: ["Q4 2025", "Q1 2026", "Q2/Q3 2026", "2027 or later"],
+    correctIndex: 2,
+    explanation: "We expect TGE in Q2/Q3 2026 (subject to approvals). KAST is waiting until ALL three factors are strong: community, protocol fees, and tokenomics.",
+    relatedLinks: [{label: "KAST Airdrop Terms", url: "https://www.kast.xyz/legal/airdrop"}]
+  },
+  {
+    id: 81,
+    category: "Points & Tokenomics",
+    questionText: "According to KAST's official airdrop terms, what is the primary reason for having a points system?",
+    choices: ["To reward short-term point farmers who maximize quick activity", "To reward the community for long-term support of KAST and our global mission", "To generate immediate liquidity and hype at TGE", "To compete with other projects solely on airdrop size"],
+    correctIndex: 1,
+    explanation: "The primary reason to have a points system is to reward the community for long term support of KAST and our global mission. We are thinking outside the box in aligning rewards to community support. The program gives preference to those aligned to KAST's mission for the long-term and not just \"points farmers\".",
+    relatedLinks: [{label: "KAST Airdrop Terms (Official)", url: "https://www.kast.xyz/legal/airdrop"}]
   },
 ];
 
