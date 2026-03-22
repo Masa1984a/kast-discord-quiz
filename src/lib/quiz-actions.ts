@@ -92,6 +92,10 @@ export async function getAttemptResult(attemptId: string) {
   return attempt;
 }
 
+export async function getActiveQuestionCount(): Promise<number> {
+  return prisma.question.count({ where: { retired: false } });
+}
+
 export async function getQuizHistory() {
   const session = await auth();
   if (!session?.user?.id) {

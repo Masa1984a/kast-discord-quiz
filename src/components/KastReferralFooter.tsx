@@ -1,8 +1,10 @@
 import Image from "next/image";
+import { getActiveQuestionCount } from "@/lib/quiz-actions";
 
 const REFERRAL_URL = "https://go.kast.xyz/VqVO/SAPPORO";
 
-export default function KastReferralFooter() {
+export default async function KastReferralFooter() {
+  const questionCount = await getActiveQuestionCount();
   return (
     <footer className="max-w-4xl mx-auto px-4 pb-12 pt-4 mt-auto">
       <div className="bg-kast-card rounded-xl border border-kast-border p-6">
@@ -37,7 +39,15 @@ export default function KastReferralFooter() {
         </a>
       </div>
       <p className="text-center text-xs text-kast-muted mt-6">
-        KAST Discord Quiz Challenge — 70 Questions, Powered by KAST
+        KAST Discord Quiz Challenge (Unofficial) — {questionCount} Questions, Created by{" "}
+        <a
+          href="https://x.com/mStarJP"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-kast-accent hover:underline"
+        >
+          mStarJP
+        </a>
       </p>
     </footer>
   );
