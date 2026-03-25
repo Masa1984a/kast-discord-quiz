@@ -753,6 +753,69 @@ const questions = [
     explanation: "The primary reason to have a points system is to reward the community for long term support of KAST and our global mission. We are thinking outside the box in aligning rewards to community support. The program gives preference to those aligned to KAST's mission for the long-term and not just \"points farmers\".",
     relatedLinks: [{label: "KAST Airdrop Terms (Official)", url: "https://www.kast.xyz/legal/airdrop"}]
   },
+  {
+    id: 82,
+    category: "PENGU Card",
+    questionText: "Which NFT community is the PENGU Card a collaboration with?",
+    choices: ["Bored Ape Yacht Club", "Azuki", "Pudgy Penguins", "Doodles"],
+    correctIndex: 2,
+    explanation: "The PENGU Card is a co-branded card born from a collaboration between KAST and Pudgy Penguins, designed for fans who want to bring Pengu into everyday spending.",
+    relatedLinks: [{label: "PENGU Card Launch Article", url: "https://www.kast.xyz/blog/pengu-card-live-kast"}]
+  },
+  {
+    id: 83,
+    category: "PENGU Card",
+    questionText: "How many tiers does the PENGU Card have?",
+    choices: ["1", "2", "3", "4"],
+    correctIndex: 2,
+    explanation: "The PENGU Card comes in 3 tiers: Pengu Card (Standard), Pengu Black Card (Premium), and Pengu Gold Card (Luxe). Each corresponds to KAST's existing tier structure.",
+    relatedLinks: [{label: "PENGU Card Launch Article", url: "https://www.kast.xyz/blog/pengu-card-live-kast"}]
+  },
+  {
+    id: 84,
+    category: "PENGU Card",
+    questionText: "What Visa grade does the Pengu Black Card (Premium) carry?",
+    choices: ["Visa Classic", "Visa Gold", "Visa Platinum", "Visa Infinite"],
+    correctIndex: 3,
+    explanation: "The Pengu Black Card (Premium) and Pengu Gold Card (Luxe) both carry Visa Infinite grade, while the standard Pengu Card carries Visa Platinum.",
+    relatedLinks: [{label: "PENGU Card Launch Article", url: "https://www.kast.xyz/blog/pengu-card-live-kast"}]
+  },
+  {
+    id: 85,
+    category: "PENGU Card",
+    questionText: "What is the total cashback rate (KAST Points + MOVE) for the Pengu Gold Card (Luxe)?",
+    choices: ["6%", "9%", "10%", "12%"],
+    correctIndex: 3,
+    explanation: "The Pengu Gold Card (Luxe) earns 8% KAST Points + 4% MOVE = 12% total cashback, matching the existing KAST Luxe tier rewards.",
+    relatedLinks: [{label: "PENGU Card Launch Article", url: "https://www.kast.xyz/blog/pengu-card-live-kast"}]
+  },
+  {
+    id: 86,
+    category: "PENGU Card",
+    questionText: "How does the PENGU Card's reward structure compare to existing KAST cards?",
+    choices: ["PENGU Cards earn double rewards", "PENGU Cards earn half rewards", "Rewards are exactly the same — only the design differs", "PENGU Cards earn bonus PENGU tokens instead of MOVE"],
+    correctIndex: 2,
+    explanation: "The PENGU Card uses the exact same reward structure as existing KAST cards. The only difference is the Pudgy Penguins card design — users can choose purely based on aesthetics.",
+    relatedLinks: [{label: "PENGU Card Launch Article", url: "https://www.kast.xyz/blog/pengu-card-live-kast"}]
+  },
+  {
+    id: 87,
+    category: "PENGU Card",
+    questionText: "What type of PENGU Card was available at the initial launch on March 25, 2026?",
+    choices: ["Physical card only", "Virtual card only", "Both virtual and physical cards", "Metal card only"],
+    correctIndex: 1,
+    explanation: "At the initial launch, only virtual PENGU Cards were available. Physical cards were announced for a later release date.",
+    relatedLinks: [{label: "PENGU Card Launch Article", url: "https://www.kast.xyz/blog/pengu-card-live-kast"}]
+  },
+  {
+    id: 88,
+    category: "PENGU Card",
+    questionText: "What is the annual fee for the Pengu Gold Card (Luxe tier)?",
+    choices: ["$1,000/year", "$2,500/year", "$5,000/year", "$10,000/year"],
+    correctIndex: 3,
+    explanation: "The Pengu Gold Card (Luxe tier) has an annual fee of $10,000/year, matching the existing KAST Luxe tier pricing. The Pengu Black Card (Premium) is $1,000/year.",
+    relatedLinks: [{label: "PENGU Card Launch Article", url: "https://www.kast.xyz/blog/pengu-card-live-kast"}]
+  },
 ];
 
 async function main() {
