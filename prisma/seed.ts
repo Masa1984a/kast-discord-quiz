@@ -95,7 +95,8 @@ const questions = [
     choices: ["8%", "10%", "11%", "12%"],
     correctIndex: 3,
     explanation: "KAST uses a tiered rewards system. The top-tier Luxe provides 8% KAST Points + 4% MOVE Rewards = 12% total. Breakdown: Standard 6%, Premium/Limited 9%, Luxe 12%.",
-    relatedLinks: [{label: "KAST Cards Explained", url: "https://academy.kast.xyz/en-us/articles/kast-cards-explained"}]
+    relatedLinks: [{label: "KAST Cards Explained", url: "https://academy.kast.xyz/en-us/articles/kast-cards-explained"}],
+    retired: true
   },
   {
     id: 11,
@@ -724,7 +725,8 @@ const questions = [
     choices: ["$0.05", "$0.08", "$0.10", "$0.20"],
     correctIndex: 2,
     explanation: "Each reward point is currently pegged to a notional value of $0.10. KAST expects to keep increasing this value in line with third-party and investor valuations.",
-    relatedLinks: [{label: "KAST Airdrop Terms", url: "https://www.kast.xyz/legal/airdrop"}]
+    relatedLinks: [{label: "KAST Airdrop Terms", url: "https://www.kast.xyz/legal/airdrop"}],
+    retired: true
   },
   {
     id: 79,
@@ -742,7 +744,8 @@ const questions = [
     choices: ["Q4 2025", "Q1 2026", "Q2/Q3 2026", "2027 or later"],
     correctIndex: 2,
     explanation: "We expect TGE in Q2/Q3 2026 (subject to approvals). KAST is waiting until ALL three factors are strong: community, protocol fees, and tokenomics.",
-    relatedLinks: [{label: "KAST Airdrop Terms", url: "https://www.kast.xyz/legal/airdrop"}]
+    relatedLinks: [{label: "KAST Airdrop Terms", url: "https://www.kast.xyz/legal/airdrop"}],
+    retired: true
   },
   {
     id: 81,
@@ -787,7 +790,8 @@ const questions = [
     choices: ["6%", "9%", "10%", "12%"],
     correctIndex: 3,
     explanation: "The Pengu Gold Card (Luxe) earns 8% KAST Points + 4% MOVE = 12% total cashback, matching the existing KAST Luxe tier rewards.",
-    relatedLinks: [{label: "PENGU Card Launch Article", url: "https://www.kast.xyz/blog/pengu-card-live-kast"}]
+    relatedLinks: [{label: "PENGU Card Launch Article", url: "https://www.kast.xyz/blog/pengu-card-live-kast"}],
+    retired: true
   },
   {
     id: 86,
@@ -816,6 +820,43 @@ const questions = [
     explanation: "The Pengu Gold Card (Luxe tier) has an annual fee of $10,000/year, matching the existing KAST Luxe tier pricing. The Pengu Black Card (Premium) is $1,000/year.",
     relatedLinks: [{label: "PENGU Card Launch Article", url: "https://www.kast.xyz/blog/pengu-card-live-kast"}]
   },
+  // ── Season 6 Rewards Update (Q89–Q92) ──
+  {
+    id: 89,
+    category: "Cards & Rewards",
+    questionText: "Under Season 6 (from April 2026), what is the maximum total cashback (KAST Points + $MOVE Rewards) that KAST provides?",
+    choices: ["8%", "10%", "11%", "12%"],
+    correctIndex: 1,
+    explanation: "In Season 6, KAST Points rewards were adjusted: Luxe 6%, Premium/Limited 4%, Standard 1%. Combined with 4% MOVE Rewards, the Luxe tier now provides a maximum of 6% + 4% = 10% total cashback.",
+    relatedLinks: [{label: "KAST Cards Explained", url: "https://academy.kast.xyz/en-us/articles/kast-cards-explained"}]
+  },
+  {
+    id: 90,
+    category: "Points & Tokenomics",
+    questionText: "What is the notional value of one KAST Point as of Season 6?",
+    choices: ["$0.10", "$0.40", "$0.80", "$1.00"],
+    correctIndex: 2,
+    explanation: "As of Season 6, each KAST Point's notional value has been raised from $0.10 to $0.80, reflecting increasing third-party and investor valuations.",
+    relatedLinks: [{label: "KAST Airdrop Terms", url: "https://www.kast.xyz/legal/airdrop"}]
+  },
+  {
+    id: 91,
+    category: "Points & Tokenomics",
+    questionText: "When does KAST now expect the Token Generation Event (TGE) for converting points to tokens?",
+    choices: ["Q2/Q3 2026", "Q4 2026", "Sometime in 2026", "2027 or later"],
+    correctIndex: 2,
+    explanation: "The TGE timeline was updated from Q2/Q3 2026 to 'sometime in 2026' (subject to approvals). KAST continues to wait until community, protocol fees, and tokenomics are all strong.",
+    relatedLinks: [{label: "KAST Airdrop Terms", url: "https://www.kast.xyz/legal/airdrop"}]
+  },
+  {
+    id: 92,
+    category: "PENGU Card",
+    questionText: "Under Season 6, what is the total cashback rate (KAST Points + MOVE) for the Pengu Gold Card (Luxe)?",
+    choices: ["6%", "8%", "10%", "12%"],
+    correctIndex: 2,
+    explanation: "In Season 6, the Luxe tier KAST Points reward was adjusted to 6%. Combined with 4% MOVE, the Pengu Gold Card (Luxe) now earns 6% + 4% = 10% total cashback.",
+    relatedLinks: [{label: "PENGU Card Launch Article", url: "https://www.kast.xyz/blog/pengu-card-live-kast"}]
+  },
 ];
 
 async function main() {
@@ -831,6 +872,7 @@ async function main() {
         correctIndex: q.correctIndex,
         explanation: q.explanation,
         relatedLinks: q.relatedLinks,
+        retired: q.retired ?? false,
       },
       create: {
         id: q.id,
@@ -840,6 +882,7 @@ async function main() {
         correctIndex: q.correctIndex,
         explanation: q.explanation,
         relatedLinks: q.relatedLinks,
+        retired: q.retired ?? false,
       },
     });
   }
