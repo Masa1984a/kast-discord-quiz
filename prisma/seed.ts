@@ -857,6 +857,82 @@ const questions = [
     explanation: "In Season 6, the Luxe tier KAST Points reward was adjusted to 6%. Combined with 4% MOVE, the Pengu Gold Card (Luxe) now earns 6% + 4% = 10% total cashback.",
     relatedLinks: [{label: "PENGU Card Launch Article", url: "https://www.kast.xyz/blog/pengu-card-live-kast"}]
   },
+  // ── Quiz Event #2 (2026-04-03) — Q93–Q100 ──
+  {
+    id: 93,
+    category: "Leadership & Fundraising",
+    questionText: "According to the KAST blog, what was the primary purpose of the $80M Series A funding round announced by the company?",
+    choices: ["To pivot the company entirely into NFT marketplace development.", "To launch a new decentralized exchange specifically for meme coins.", "Scale platform, grow team, ensure compliance.", "To acquire a European banking license and rebrand as a traditional bank."],
+    correctIndex: 2,
+    explanation: "KAST announced an $80M Series A co-led by QED Investors and Left Lane Capital. The funds are planned for three goals: product expansion across North America, LATAM, and the Middle East; regulatory and compliance infrastructure; and team growth with hires from Stripe, Revolut, Binance, Circle, and Airwallex.",
+    relatedLinks: [{label: "KAST $80M Series A Announcement", url: "https://www.kast.xyz/blog/kast-announces-80m-series-a"}]
+  },
+  {
+    id: 94,
+    category: "Community & Campaigns",
+    questionText: "What is the primary benefit of the 'KAST Affiliate Program' accessible directly inside the app?",
+    choices: ["It provides free flight tickets to users who refer five friends.", "It allows users to track referrals and earn rewards without a separate login.", "It gives users the ability to vote on which coins are listed next.", "It automatically converts all your friends' bank accounts to KAST."],
+    correctIndex: 1,
+    explanation: "The KAST Affiliate Program is built directly into the app (Home → Referral → Become an Affiliate). Because it uses the existing KAST account, email matching, referral codes, and KYC are already done. Once approved, affiliates can track referrals, monitor rewards, and see content performance in the affiliate portal — no separate login required.",
+    relatedLinks: [{label: "KAST In-App Affiliate Sign-Up", url: "https://www.kast.xyz/blog/kast-adds-in-app-affiliate-sign-up-and-portal-access"}]
+  },
+  {
+    id: 95,
+    category: "Geography & Use Cases",
+    questionText: "In Brazil, how can users spend their crypto balance locally according to KAST features?",
+    choices: ["By mailing a physical check to the Central Bank.", "Through a partnership with local grocery store coupons.", "By using PIX integrated within the KAST app.", "By only using Bitcoin lightning network at street vendors."],
+    correctIndex: 2,
+    explanation: "In Brazil, KAST offers three payment methods: KAST Card (Visa merchants with instant USD→BRL conversion), PIX Scan Pay (scan merchant QR codes in-app for real-time BRL payments), and Mobile Wallet (Apple Pay/Google Pay contactless). PIX Scan Pay directly bridges crypto balances with Brazil's local payment infrastructure.",
+    relatedLinks: [{label: "Spend Crypto in Brazil with KAST", url: "https://academy.kast.xyz/en-us/articles/spend-crypto-brazil-kast"}]
+  },
+  {
+    id: 96,
+    category: "Core Products",
+    questionText: "What is 'KAST Academy' according to the blog announcements?",
+    choices: ["A physical university campus located in Dubai.", "Educational hub for stablecoins, DeFi, and KAST features.", "A trading bot that automatically buys low and sells high.", "A recruitment portal for people wanting to work as KAST engineers."],
+    correctIndex: 1,
+    explanation: "KAST Academy is a structured learning platform covering Solana, DeFi, stablecoins, crypto basics, security, and KAST product guides. It is accessible at academy.kast.xyz from any browser.",
+    relatedLinks: [{label: "KAST Academy Launch", url: "https://www.kast.xyz/blog/kast-academy-is-live-learn-how-to-use-kast-and-modern-money"}]
+  },
+  {
+    id: 97,
+    category: "Geography & Use Cases",
+    questionText: "How does KAST help users pay off a mortgage in Dubai?",
+    choices: ["By giving users free real estate in exchange for KAST points.", "By providing a 0% interest loan paid in Bitcoin.", "By converting stablecoins into AED and sending them to a UAE bank account.", "By allowing users to 'stake' their house as an NFT."],
+    correctIndex: 2,
+    explanation: "KAST Pay's global withdrawal feature converts stablecoins to AED (UAE Dirham) and sends them directly to a UAE bank account. The AED conversion fee is 1%, the transfer fee is $3, and processing is next-day settlement. Stablecoins are converted through a licensed partner FX network.",
+    relatedLinks: [
+      {label: "Earn Global, Spend Local", url: "https://www.kast.xyz/blog/earn-global-spend-local-turn-stablecoins-into-your-local-currency-with-kast"},
+      {label: "KAST Pay in More Currencies", url: "https://www.kast.xyz/blog/move-money-your-way-with-kast-pay-now-in-more-currencies"}
+    ]
+  },
+  {
+    id: 98,
+    category: "Leadership & Team",
+    questionText: "Who is the Chief Data & Strategy Officer (CDSO) of KAST mentioned in the 'People' section?",
+    choices: ["Sam Kerrins", "Chameera Wijebandara", "Andy Goldin", "Brad Jaffe"],
+    correctIndex: 2,
+    explanation: "Andy Goldin joined KAST in January 2026 as CDSO and Chief of Staff to CEO Raagulan Pathy. His background includes investment banking, Boston Consulting Group, a predictive analytics master's from Northwestern, and leadership roles at Uber Asia (early member) and Binance (scaling the analytics team from 10 to 80-90 people).",
+    relatedLinks: [{label: "Meet KAST CDSO Andy Goldin", url: "https://www.kast.xyz/blog/meet-kast-chief-data-strategy-officer-andy-goldin"}]
+  },
+  {
+    id: 99,
+    category: "Fees & Transfers",
+    questionText: "When sending stablecoins via the Solana network on KAST, what is the standard fee structure?",
+    choices: ["$1 + 0.1% of the withdrawal amount.", "A flat fee of $10 regardless of the amount.", "Zero fees for all on-chain transfers.", "5% of the total transaction value."],
+    correctIndex: 0,
+    explanation: "KAST's on-chain withdrawal fees are: Solana $1 + 0.1%, Ethereum $6 + 0.1%. While Solana's native gas fees are under $0.01, KAST's platform fee uses a fixed + percentage structure for transparency.",
+    relatedLinks: [{label: "KAST Fees Explained", url: "https://academy.kast.xyz/en-us/articles/kast-fees-explained"}]
+  },
+  {
+    id: 100,
+    category: "Cards & Products",
+    questionText: "The KAST physical card 'Solana Illuma' is famous for what unique physical feature?",
+    choices: ["It is made of 24k solid gold.", "It has a built-in fingerprint scanner for all purchases.", "A Solana logo illuminated by LED that lights up when you use the card.", "It changes color based on the price of Solana."],
+    correctIndex: 2,
+    explanation: "The Solana Illuma (Premium tier) features a tap-activated LED light effect — the Solana logo illuminates when the card is used for contactless payments. The 24k gold feature belongs to the Luxe tier Solid Gold Card, not the Solana Illuma.",
+    relatedLinks: [{label: "KAST Cards Explained", url: "https://academy.kast.xyz/en-us/articles/kast-cards-explained"}]
+  },
 ];
 
 async function main() {
